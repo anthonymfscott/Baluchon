@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AD3CE748248D9D7C00063181 /* TranslationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3CE747248D9D7C00063181 /* TranslationViewController.swift */; };
 		ADAF702B248A9EF80058F1A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAF702A248A9EF80058F1A7 /* AppDelegate.swift */; };
 		ADAF702D248A9EF80058F1A7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAF702C248A9EF80058F1A7 /* SceneDelegate.swift */; };
 		ADAF702F248A9EF80058F1A7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAF702E248A9EF80058F1A7 /* ViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AD3CE747248D9D7C00063181 /* TranslationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationViewController.swift; sourceTree = "<group>"; };
 		ADAF7027248A9EF80058F1A7 /* Baluchon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Baluchon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADAF702A248A9EF80058F1A7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ADAF702C248A9EF80058F1A7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 			isa = PBXGroup;
 			children = (
 				ADAF702E248A9EF80058F1A7 /* ViewController.swift */,
+				AD3CE747248D9D7C00063181 /* TranslationViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -162,6 +165,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD3CE748248D9D7C00063181 /* TranslationViewController.swift in Sources */,
 				ADAF702F248A9EF80058F1A7 /* ViewController.swift in Sources */,
 				ADAF702B248A9EF80058F1A7 /* AppDelegate.swift in Sources */,
 				ADAF702D248A9EF80058F1A7 /* SceneDelegate.swift in Sources */,
