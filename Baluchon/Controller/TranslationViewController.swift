@@ -9,13 +9,8 @@
 import UIKit
 
 class TranslationViewController: UIViewController {
-    @IBOutlet var targetLanguageStackView: UIStackView!
-
-
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
     }
-
 }
