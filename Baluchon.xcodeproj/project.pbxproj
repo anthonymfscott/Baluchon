@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AD09C284248EA95800CF3B07 /* RateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD09C283248EA95800CF3B07 /* RateViewController.swift */; };
 		AD3CE748248D9D7C00063181 /* TranslationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3CE747248D9D7C00063181 /* TranslationViewController.swift */; };
 		ADAF702B248A9EF80058F1A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAF702A248A9EF80058F1A7 /* AppDelegate.swift */; };
 		ADAF702D248A9EF80058F1A7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAF702C248A9EF80058F1A7 /* SceneDelegate.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AD09C283248EA95800CF3B07 /* RateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateViewController.swift; sourceTree = "<group>"; };
 		AD3CE747248D9D7C00063181 /* TranslationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationViewController.swift; sourceTree = "<group>"; };
 		ADAF7027248A9EF80058F1A7 /* Baluchon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Baluchon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADAF702A248A9EF80058F1A7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 			children = (
 				ADAF702E248A9EF80058F1A7 /* WeatherViewController.swift */,
 				AD3CE747248D9D7C00063181 /* TranslationViewController.swift */,
+				AD09C283248EA95800CF3B07 /* RateViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -168,6 +171,7 @@
 				AD3CE748248D9D7C00063181 /* TranslationViewController.swift in Sources */,
 				ADAF702F248A9EF80058F1A7 /* WeatherViewController.swift in Sources */,
 				ADAF702B248A9EF80058F1A7 /* AppDelegate.swift in Sources */,
+				AD09C284248EA95800CF3B07 /* RateViewController.swift in Sources */,
 				ADAF702D248A9EF80058F1A7 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
