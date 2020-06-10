@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		AD09C284248EA95800CF3B07 /* RateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD09C283248EA95800CF3B07 /* RateViewController.swift */; };
 		AD3CE748248D9D7C00063181 /* TranslationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3CE747248D9D7C00063181 /* TranslationViewController.swift */; };
+		AD3F7C06248EB25200ED0DBA /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3F7C05248EB25200ED0DBA /* WeatherService.swift */; };
+		AD3F7C08248EB2A100ED0DBA /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3F7C07248EB2A100ED0DBA /* Weather.swift */; };
+		AD3F7C0A248EB71200ED0DBA /* TranslationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3F7C09248EB71200ED0DBA /* TranslationService.swift */; };
+		AD3F7C0C248ED8C500ED0DBA /* Translation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3F7C0B248ED8C500ED0DBA /* Translation.swift */; };
+		AD3F7C0E248ED99600ED0DBA /* ExchangeRateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3F7C0D248ED99600ED0DBA /* ExchangeRateService.swift */; };
+		AD3F7C10248ED9A600ED0DBA /* ExchangeRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3F7C0F248ED9A600ED0DBA /* ExchangeRate.swift */; };
 		ADAF702B248A9EF80058F1A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAF702A248A9EF80058F1A7 /* AppDelegate.swift */; };
 		ADAF702D248A9EF80058F1A7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAF702C248A9EF80058F1A7 /* SceneDelegate.swift */; };
 		ADAF702F248A9EF80058F1A7 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAF702E248A9EF80058F1A7 /* WeatherViewController.swift */; };
@@ -20,6 +26,12 @@
 /* Begin PBXFileReference section */
 		AD09C283248EA95800CF3B07 /* RateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateViewController.swift; sourceTree = "<group>"; };
 		AD3CE747248D9D7C00063181 /* TranslationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationViewController.swift; sourceTree = "<group>"; };
+		AD3F7C05248EB25200ED0DBA /* WeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherService.swift; sourceTree = "<group>"; };
+		AD3F7C07248EB2A100ED0DBA /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
+		AD3F7C09248EB71200ED0DBA /* TranslationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationService.swift; sourceTree = "<group>"; };
+		AD3F7C0B248ED8C500ED0DBA /* Translation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Translation.swift; sourceTree = "<group>"; };
+		AD3F7C0D248ED99600ED0DBA /* ExchangeRateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRateService.swift; sourceTree = "<group>"; };
+		AD3F7C0F248ED9A600ED0DBA /* ExchangeRate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRate.swift; sourceTree = "<group>"; };
 		ADAF7027248A9EF80058F1A7 /* Baluchon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Baluchon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADAF702A248A9EF80058F1A7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ADAF702C248A9EF80058F1A7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -93,6 +105,12 @@
 		ADAF7040248A9F240058F1A7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				AD3F7C05248EB25200ED0DBA /* WeatherService.swift */,
+				AD3F7C07248EB2A100ED0DBA /* Weather.swift */,
+				AD3F7C09248EB71200ED0DBA /* TranslationService.swift */,
+				AD3F7C0B248ED8C500ED0DBA /* Translation.swift */,
+				AD3F7C0D248ED99600ED0DBA /* ExchangeRateService.swift */,
+				AD3F7C0F248ED9A600ED0DBA /* ExchangeRate.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -170,9 +188,15 @@
 			files = (
 				AD3CE748248D9D7C00063181 /* TranslationViewController.swift in Sources */,
 				ADAF702F248A9EF80058F1A7 /* WeatherViewController.swift in Sources */,
+				AD3F7C0C248ED8C500ED0DBA /* Translation.swift in Sources */,
 				ADAF702B248A9EF80058F1A7 /* AppDelegate.swift in Sources */,
+				AD3F7C0A248EB71200ED0DBA /* TranslationService.swift in Sources */,
 				AD09C284248EA95800CF3B07 /* RateViewController.swift in Sources */,
+				AD3F7C06248EB25200ED0DBA /* WeatherService.swift in Sources */,
+				AD3F7C10248ED9A600ED0DBA /* ExchangeRate.swift in Sources */,
 				ADAF702D248A9EF80058F1A7 /* SceneDelegate.swift in Sources */,
+				AD3F7C0E248ED99600ED0DBA /* ExchangeRateService.swift in Sources */,
+				AD3F7C08248EB2A100ED0DBA /* Weather.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,15 +340,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = TXT2SKTT3Q;
+				DEVELOPMENT_TEAM = JVSADVSJ8H;
 				INFOPLIST_FILE = Baluchon/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = example.Baluchon;
+				PRODUCT_BUNDLE_IDENTIFIER = anthonymfscott.Baluchon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -334,15 +360,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = TXT2SKTT3Q;
+				DEVELOPMENT_TEAM = JVSADVSJ8H;
 				INFOPLIST_FILE = Baluchon/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = example.Baluchon;
+				PRODUCT_BUNDLE_IDENTIFIER = anthonymfscott.Baluchon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

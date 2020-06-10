@@ -9,6 +9,7 @@
 import UIKit
 
 class TranslationViewController: UIViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
