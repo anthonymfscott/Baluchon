@@ -8,10 +8,10 @@
 
 import Foundation
 
-struct ExchangeRate: Codable {
-    let success: Bool
-    let timestamp: Int
-    let base: String
-    let date: String
+struct ExchangeRate: Decodable {
     let rates: [String: Float]
+
+    enum CodingKeys: String, CodingKey {
+        case rates
+    }
 }

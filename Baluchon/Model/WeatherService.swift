@@ -70,9 +70,9 @@ class WeatherService {
             }
 
             task?.resume()
-            weathers.append(weather)
+//            weathers.append(weather)
         }
 
-        callback(true, weathers)
+//        callback(true, weathers)
     }
 }

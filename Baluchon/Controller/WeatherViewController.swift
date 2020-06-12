@@ -21,8 +21,8 @@ class WeatherViewController: UIViewController {
         
     }
 
-    @IBAction func updateButtonTapped(_ sender: UIButton) {
-        getWeather(cities: ["Brussels", "New+York"])
+    @IBAction func baluchonRedTapped(_ sender: UIButton) {
+//        getWeather(cities: ["Brussels", "New+York"])
 //        getWeather(city: "New+York")
     }
 

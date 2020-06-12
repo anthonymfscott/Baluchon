@@ -36,11 +36,12 @@ struct Weather: Decodable {
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         city = try container.decode(String.self, forKey: .city)
-        weather = try container.decode([WeatherText].self, forKey: .weather)
-        let main = try container.nestedContainer(keyedBy: MainCodingKeys.self, forKey: .main)
 
-        temperature = try main.decode(Float.self, forKey: .temperature)
+        weather = try container.decode([WeatherText].self, forKey: .weather)
         general = weather?[0].main
         description = weather?[0].description
+
+        let main = try container.nestedContainer(keyedBy: MainCodingKeys.self, forKey: .main)
+        temperature = try main.decode(Float.self, forKey: .temperature)
     }
 }

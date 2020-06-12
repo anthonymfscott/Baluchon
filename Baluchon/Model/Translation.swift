@@ -8,8 +8,12 @@
 
 import Foundation
 
-struct Translation: Codable {
-    struct Data: Codable {
+struct Translation: Decodable {
+    var translatedText: String? {
+        data.translations[0]["translatedText"]!
+    }
+
+    struct Data: Decodable {
         let translations: [[String: String]]
     }
     let data: Data

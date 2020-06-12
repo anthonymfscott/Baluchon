@@ -12,14 +12,15 @@ class ExchangeRateService {
     static let shared = ExchangeRateService()
     private init() {}
 
-    private let baseUrl = "http://data.fixer.io/api/latest?access_key="
+    private let baseUrl = "https://data.fixer.io/api/latest?access_key="
     private let apiKey = "5d7d6c079441b3412bb1c51f01f231fc"
 
     private var task: URLSessionTask?
 
-    func getRate(from amount: Float) {
+    func getRate(completed: @escaping (Bool, ExchangeRate?) -> Void) {
         guard let url = URL(string: baseUrl + apiKey) else {
             print("URL error")
+            completed(false, nil)
             return
         }
 
@@ -28,19 +29,39 @@ class ExchangeRateService {
         task?.cancel()
         task = session.dataTask(with: url) { (data, response, error) in
             DispatchQueue.main.async {
-                guard let data = data, error == nil,
-                    let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-                        print("Request error")
-                        return
-                }
-
-                guard let responseJSON = try? JSONDecoder().decode(ExchangeRate.self, from: data) else {
-                    print("JSON parsing error")
+                if let error = error {
+                    print(error)
+                    completed(false, nil)
                     return
                 }
 
-                let dollars = responseJSON.rates["USD"]! * amount
-                print("\(amount) euros = \(dollars) dollars")
+                guard let response = response as? HTTPURLResponse else {
+                    print("Invalid response.")
+                    completed(false, nil)
+                    return
+                }
+
+                guard response.statusCode == 200 else {
+                    print("Invalid status code.")
+                    print(response.statusCode)
+                    completed(false, nil)
+                    return
+                }
+
+                guard let data = data else {
+                    print("Invalid data.")
+                    completed(false, nil)
+                    return
+                }
+
+                do {
+                    let decodedData = try JSONDecoder().decode(ExchangeRate.self, from: data)
+                    print(decodedData)
+                    completed(true, decodedData)
+                } catch let error {
+                    print("Decoding error: \(error)")
+                    completed(false, nil)
+                }
             }
         }
 

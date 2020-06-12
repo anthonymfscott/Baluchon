@@ -35,15 +35,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xdn-Ls-9XL">
+                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xdn-Ls-9XL" userLabel="baluchonRed">
                                 <rect key="frame" x="167.66666666666666" y="347.33333333333331" width="78.666666666666657" height="162.33333333333331"/>
                                 <state key="normal" image="baluchonRed"/>
                                 <connections>
-                                    <action selector="updateButtonTapped:" destination="Brj-QW-0gU" eventType="touchUpInside" id="rdQ-V8-Vjn"/>
+                                    <action selector="baluchonRedTapped:" destination="Brj-QW-0gU" eventType="touchUpInside" id="rdQ-V8-Vjn"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" image="center" translatesAutoresizingMaskIntoConstraints="NO" id="MfH-Ke-O5L">
-                                <rect key="frame" x="0.0" y="347.33333333333331" width="414" height="162.33333333333331"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" image="baluchonStick" translatesAutoresizingMaskIntoConstraints="NO" id="MfH-Ke-O5L">
+                                <rect key="frame" x="0.0" y="347.33333333333331" width="414" height="162.66666666666669"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" image="bannerWhite" translatesAutoresizingMaskIntoConstraints="NO" id="JRH-X4-fGl" userLabel="bannerWhite1">
                                 <rect key="frame" x="-32" y="76.000000000000014" width="390" height="255.33333333333337"/>
@@ -51,7 +51,7 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" image="bannerWhite" translatesAutoresizingMaskIntoConstraints="NO" id="VY8-6Z-4iG" userLabel="bannerWhite2">
                                 <rect key="frame" x="56" y="525.66666666666663" width="390" height="255.33333333333337"/>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="lao-nc-22L" userLabel="Weather1">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="lao-nc-22L" userLabel="Weather1" customClass="WeatherLabel" customModule="Baluchon" customModuleProvider="target">
                                 <rect key="frame" x="209.99999999999997" y="92.000000000000014" width="118.66666666666666" height="223.33333333333337"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" text="15°C" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qNL-et-GgX" userLabel="Temperature">
@@ -160,20 +160,20 @@
             </objects>
             <point key="canvasLocation" x="5783" y="898"/>
         </scene>
-        <!--Exchange rate-->
+        <!--Exchange Rate-->
         <scene sceneID="gI0-rG-sLG">
             <objects>
-                <viewController id="ENk-Lf-PWO" customClass="RateViewController" customModule="Baluchon" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="ENk-Lf-PWO" userLabel="Exchange Rate" customClass="ExchangeRateViewController" customModule="Baluchon" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Frf-xR-qAp">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Ee-BY-VRX">
+                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Ee-BY-VRX" userLabel="baluchonGreen">
                                 <rect key="frame" x="167.66666666666666" y="347.33333333333331" width="78.666666666666657" height="162.33333333333331"/>
                                 <state key="normal" image="baluchonGreen"/>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" image="center" translatesAutoresizingMaskIntoConstraints="NO" id="g3v-lw-GOr">
-                                <rect key="frame" x="0.0" y="347.33333333333331" width="414" height="162.33333333333331"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" image="baluchonStick" translatesAutoresizingMaskIntoConstraints="NO" id="g3v-lw-GOr">
+                                <rect key="frame" x="0.0" y="347.33333333333331" width="414" height="162.66666666666669"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" image="bannerGreen" translatesAutoresizingMaskIntoConstraints="NO" id="J51-cz-8zx" userLabel="bannerGreen1">
                                 <rect key="frame" x="-32" y="76.000000000000014" width="390" height="255.33333333333337"/>
@@ -275,25 +275,32 @@
                     <tabBarItem key="tabBarItem" title="Exchange rate" image="money" id="2jW-uV-iKK">
                         <inset key="imageInsets" minX="0.0" minY="39" maxX="0.0" maxY="35"/>
                     </tabBarItem>
+                    <connections>
+                        <outlet property="inputRate" destination="fOn-do-H2V" id="SVU-QP-A6L"/>
+                        <outlet property="resultRate" destination="3vP-Fm-TxN" id="9Ba-2Z-JuT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iMH-C7-Uf1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4841" y="898"/>
         </scene>
-        <!--Translate-->
+        <!--Translation-->
         <scene sceneID="kip-WS-Mzq">
             <objects>
-                <viewController id="ZN2-ey-Vs6" customClass="TranslationViewController" customModule="Baluchon" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="ZN2-ey-Vs6" userLabel="Translation" customClass="TranslationViewController" customModule="Baluchon" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qTb-aV-6uG">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gKw-g4-iWo">
+                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gKw-g4-iWo" userLabel="baluchonBlue">
                                 <rect key="frame" x="168" y="347" width="78.333333333333314" height="163"/>
                                 <state key="normal" image="baluchonBlue"/>
+                                <connections>
+                                    <action selector="baluchonBlueTapped:" destination="ZN2-ey-Vs6" eventType="touchUpInside" id="VMo-He-1dv"/>
+                                </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" image="center" translatesAutoresizingMaskIntoConstraints="NO" id="ygx-dR-1op">
-                                <rect key="frame" x="0.0" y="347.33333333333331" width="414" height="162.33333333333331"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" image="baluchonStick" translatesAutoresizingMaskIntoConstraints="NO" id="ygx-dR-1op">
+                                <rect key="frame" x="0.0" y="347.33333333333331" width="414" height="162.66666666666669"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" image="bannerBlue" translatesAutoresizingMaskIntoConstraints="NO" id="ZLA-gI-A5v" userLabel="bannerBlue1">
                                 <rect key="frame" x="-32" y="76" width="390" height="255"/>
@@ -321,7 +328,10 @@
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="ZN2-ey-Vs6" id="cZw-Mx-MbZ"/>
+                                        </connections>
                                     </textView>
                                 </subviews>
                             </stackView>
@@ -366,6 +376,7 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.85782104729999997" green="0.73457247020000005" blue="0.63136053089999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="gKw-g4-iWo" firstAttribute="centerX" secondItem="vap-xF-uAa" secondAttribute="centerX" id="0ec-wP-fbN"/>
                             <constraint firstItem="ZLA-gI-A5v" firstAttribute="height" secondItem="tE3-fN-ltu" secondAttribute="height" id="2K7-kq-aHx"/>
@@ -398,12 +409,24 @@
                             <constraint firstItem="ygx-dR-1op" firstAttribute="leading" secondItem="vap-xF-uAa" secondAttribute="leading" id="y1A-wn-hgc"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vap-xF-uAa"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="tIC-aY-vkP" appends="YES" id="Aec-Jv-ATk"/>
+                        </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="Translate" image="translate" id="Ogo-V6-CYB">
                         <inset key="imageInsets" minX="0.0" minY="39" maxX="0.0" maxY="35"/>
                     </tabBarItem>
+                    <connections>
+                        <outlet property="inputText" destination="xnY-6R-arv" id="83R-Of-E77"/>
+                        <outlet property="resultText" destination="BkX-sQ-P6e" id="J43-qC-cU4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vEy-ut-KJL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="tIC-aY-vkP">
+                    <connections>
+                        <action selector="dismissKeyboard:" destination="ZN2-ey-Vs6" id="UUS-jT-YWV"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="6696" y="898"/>
         </scene>
@@ -412,10 +435,10 @@
         <image name="baluchonBlue" width="78.333335876464844" height="163"/>
         <image name="baluchonGreen" width="78.666664123535156" height="162.33332824707031"/>
         <image name="baluchonRed" width="78.666664123535156" height="162.33332824707031"/>
+        <image name="baluchonStick" width="413" height="162.66667175292969"/>
         <image name="bannerBlue" width="390" height="216"/>
         <image name="bannerGreen" width="390" height="216"/>
         <image name="bannerWhite" width="390" height="216"/>
-        <image name="center" width="412.33334350585938" height="162.33332824707031"/>
         <image name="dollar" width="512" height="512"/>
         <image name="euro" width="512" height="512"/>
         <image name="france" width="512" height="512"/>
