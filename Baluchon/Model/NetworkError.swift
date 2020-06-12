@@ -8,10 +8,22 @@
 
 import Foundation
 
-enum NetworkError: String, Error {
-    case requestError = "Unable to complete the request."
-    case invalidResponse = "Invalid response."
-    case invalidStatusCode = "Invalid status code."
-    case invalidData = "Invalid data."
-    case decodingError = "Decoding error."
+enum NetworkError: Error {
+    case requestError(description: String)
+    case invalidResponse
+    case invalidStatusCode(statusCode: Int)
+    case invalidData
+    case decodingError(description: String)
+}
+
+extension NetworkError: LocalizedError {
+    var errorDescription: String? {
+        switch self {
+        case .requestError(let description): return "Unable to complete the request: \(description)"
+        case .invalidResponse: return "Invalid response"
+        case .invalidStatusCode(let statusCode): return "Invalid status code: \(statusCode)"
+        case .invalidData: return "Invalid data"
+        case .decodingError(let description): return "Decoding error: \(description)"
+        }
+    }
 }

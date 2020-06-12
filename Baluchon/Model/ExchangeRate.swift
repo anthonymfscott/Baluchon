@@ -10,8 +10,4 @@ import Foundation
 
 struct ExchangeRate: Decodable {
     let rates: [String: Float]
-
-    enum CodingKeys: String, CodingKey {
-        case rates
-    }
 }

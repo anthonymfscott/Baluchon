@@ -26,7 +26,7 @@ class TranslationViewController: UIViewController, UITextViewDelegate {
             case .success(let translation):
                 self.updateUI(with: translation)
             case .failure(let error):
-                print(error.rawValue)
+                print(error.localizedDescription)
             }
         }
     }

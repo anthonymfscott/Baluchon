@@ -22,15 +22,15 @@ class WeatherViewController: UIViewController {
     }
 
     @IBAction func baluchonRedTapped(_ sender: UIButton) {
-//        getWeather(cities: ["Brussels", "New+York"])
-//        getWeather(city: "New+York")
+        getWeather(cities: ["Brussels", "New+York"])
     }
 
     private func getWeather(cities: [String]) {
         WeatherService.shared.getWeather(cities: cities) { (success, weathers) in
             if success, let weathers = weathers {
-                self.update(weather: weathers[0], city: cities[0])
-                self.update(weather: weathers[1], city: cities[1])
+                print(weathers)
+//                self.update(weather: weathers[0], city: cities[0])
+//                self.update(weather: weathers[1], city: cities[1])
             }
         }
     }

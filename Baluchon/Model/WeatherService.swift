@@ -18,7 +18,7 @@ class WeatherService {
     private var task: URLSessionTask?
 
     func getWeather(cities: [String], callback: @escaping (Bool, [Weather?]?) -> Void) {
-        var weathers: [Weather?]
+        var weathers: [Weather?] = []
 
         for city in cities {
             var weather: Weather?
@@ -29,10 +29,9 @@ class WeatherService {
                 return
             }
 
-            let session = URLSession(configuration: .default)
-
             task?.cancel()
-            task = session.dataTask(with: url) { (data, response, error) in
+            
+            task = URLSession.shared.dataTask(with: url) { (data, response, error) in
                 DispatchQueue.main.async {
                     if let error = error {
                         print(error)
@@ -62,6 +61,7 @@ class WeatherService {
                     do {
                         let decodedData = try JSONDecoder().decode(Weather.self, from: data)
                         weather = decodedData
+                        weathers.append(weather)
                     } catch let error {
                         print("Decoding error: \(error)")
                         callback(false, nil)
@@ -70,9 +70,8 @@ class WeatherService {
             }
 
             task?.resume()
-//            weathers.append(weather)
         }
 
-//        callback(true, weathers)
+        callback(true, weathers)
     }
 }

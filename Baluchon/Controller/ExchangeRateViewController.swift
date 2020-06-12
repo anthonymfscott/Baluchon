@@ -15,12 +15,18 @@ class ExchangeRateViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-//        ExchangeRateService.shared.getRate { (success, rate) in
-//            if success, let rate = rate {
-//                let result = rate.rates["USD"]!
-//                self.resultRate.text = "\(result)"
-//            }
-//        }
+        ExchangeRateService.shared.getRate { result in
+            switch result {
+            case .success(let rate):
+                self.updateUI(with: rate)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+
+    private func updateUI(with rate: ExchangeRate) {
+//        resultRate.text = rate.rates["EUR"]!
     }
 }
 

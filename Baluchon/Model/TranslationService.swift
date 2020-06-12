@@ -21,11 +21,11 @@ class TranslationService {
         let request = createTranslationRequest(inputText: inputText, targetLanguage: targetLanguage)
 
         task?.cancel()
+        
         task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             DispatchQueue.main.async {
                 if let error = error {
-                    completed(.failure(.requestError))
-                    print(error)
+                    completed(.failure(.requestError(description: error.localizedDescription)))
                     return
                 }
 
@@ -35,14 +35,12 @@ class TranslationService {
                 }
 
                 guard response.statusCode == 200 else {
-                    completed(.failure(.invalidStatusCode))
-                    print(response.statusCode)
+                    completed(.failure(.invalidStatusCode(statusCode: response.statusCode)))
                     return
                 }
 
                 guard let data = data else {
                     completed(.failure(.invalidData))
-                    print("Invalid data.")
                     return
                 }
 
@@ -50,8 +48,7 @@ class TranslationService {
                     let decodedData = try JSONDecoder().decode(Translation.self, from: data)
                     completed(.success(decodedData))
                 } catch let error {
-                    completed(.failure(.decodingError))
-                    print(error)
+                    completed(.failure(.decodingError(description: error.localizedDescription)))
                 }
             }
         }
