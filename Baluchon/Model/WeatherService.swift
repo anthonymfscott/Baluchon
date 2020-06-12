@@ -12,66 +12,47 @@ class WeatherService {
     static let shared = WeatherService()
     private init() {}
 
-    private let baseUrl = "https://api.openweathermap.org/data/2.5/weather?q="
+    private let baseUrl = "https://api.openweathermap.org/data/2.5/"
     private let apiKey = "10f66a10b9cad69c5478404e51823159"
 
     private var task: URLSessionTask?
 
-    func getWeather(cities: [String], callback: @escaping (Bool, [Weather?]?) -> Void) {
-        var weathers: [Weather?] = []
+    func getWeather(completed: @escaping (Result<WeatherResponse, NetworkError>) -> Void) {
+        let url = URL(string: baseUrl + "group?id=2800866,5128581&units=metric&appid=\(apiKey)")!
 
-        for city in cities {
-            var weather: Weather?
+        task?.cancel()
 
-            guard let url = URL(string: baseUrl + "\(city)&units=metric&appid=\(apiKey)") else {
-                print("URL error")
-                callback(false, nil)
-                return
-            }
+        task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+            DispatchQueue.main.async {
+                if let error = error {
+                    completed(.failure(.requestError(description: error.localizedDescription)))
+                    return
+                }
 
-            task?.cancel()
-            
-            task = URLSession.shared.dataTask(with: url) { (data, response, error) in
-                DispatchQueue.main.async {
-                    if let error = error {
-                        print(error)
-                        callback(false, nil)
-                        return
-                    }
+                guard let response = response as? HTTPURLResponse else {
+                    completed(.failure(.invalidResponse))
+                    return
+                }
 
-                    guard let response = response as? HTTPURLResponse else {
-                        print("Invalid response.")
-                        callback(false, nil)
-                        return
-                    }
+                guard response.statusCode == 200 else {
+                    completed(.failure(.invalidStatusCode(statusCode: response.statusCode)))
+                    return
+                }
 
-                    guard response.statusCode == 200 else {
-                        print("Invalid status code.")
-                        print(response.statusCode)
-                        callback(false, nil)
-                        return
-                    }
+                guard let data = data else {
+                    completed(.failure(.invalidData))
+                    return
+                }
 
-                    guard let data = data else {
-                        print("Invalid data.")
-                        callback(false, nil)
-                        return
-                    }
-
-                    do {
-                        let decodedData = try JSONDecoder().decode(Weather.self, from: data)
-                        weather = decodedData
-                        weathers.append(weather)
-                    } catch let error {
-                        print("Decoding error: \(error)")
-                        callback(false, nil)
-                    }
+                do {
+                    let decodedData = try JSONDecoder().decode(WeatherResponse.self, from: data)
+                    completed(.success(decodedData))
+                } catch let error {
+                    completed(.failure(.decodingError(description: error.localizedDescription)))
                 }
             }
-
-            task?.resume()
         }
 
-        callback(true, weathers)
+        task?.resume()
     }
 }

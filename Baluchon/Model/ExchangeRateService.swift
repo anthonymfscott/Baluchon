@@ -12,13 +12,13 @@ class ExchangeRateService {
     static let shared = ExchangeRateService()
     private init() {}
 
-    private let baseUrl = "https://data.fixer.io/api/latest?access_key="
+    private let baseUrl = "https://data.fixer.io/api/"
     private let apiKey = "5d7d6c079441b3412bb1c51f01f231fc"
 
     private var task: URLSessionTask?
 
     func getRate(completed: @escaping (Result<ExchangeRate, NetworkError>) -> Void) {
-        let url = URL(string: baseUrl + apiKey)
+//        let url = URL(string: baseUrl + "latest?access_key=\(apiKey)")
 
         let session = URLSession(configuration: .default)
 

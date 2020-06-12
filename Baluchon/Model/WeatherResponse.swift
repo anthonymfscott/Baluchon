@@ -8,6 +8,14 @@
 
 import Foundation
 
+struct WeatherResponse: Decodable {
+    let weatherArray: [Weather]
+
+    enum CodingKeys: String, CodingKey {
+        case weatherArray = "list"
+    }
+}
+
 struct Weather: Decodable {
     var city: String?
     var temperature: Float?

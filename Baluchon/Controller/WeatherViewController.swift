@@ -9,45 +9,65 @@
 import UIKit
 
 class WeatherViewController: UIViewController {
-    @IBOutlet var city1Temperature: UILabel!
-    @IBOutlet var city1Main: UILabel!
-    @IBOutlet var city1Description: UILabel!
-    @IBOutlet var city2Temperature: UILabel!
-    @IBOutlet var city2Main: UILabel!
-    @IBOutlet var city2Description: UILabel!
+    @IBOutlet var weather1City: UILabel!
+    @IBOutlet var weather1Temperature: UILabel!
+    @IBOutlet var weather1Main: UILabel!
+    @IBOutlet var weather1Description: UILabel!
+
+    @IBOutlet var weather2City: UILabel!
+    @IBOutlet var weather2Temperature: UILabel!
+    @IBOutlet var weather2Main: UILabel!
+    @IBOutlet var weather2Description: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+        weather1Temperature.text = ""
+        weather1Main.text = ""
+        weather1Description.text = ""
+
+        weather2Temperature.text = ""
+        weather2Main.text = ""
+        weather2Description.text = ""
     }
 
     @IBAction func baluchonRedTapped(_ sender: UIButton) {
-        getWeather(cities: ["Brussels", "New+York"])
+        getWeather()
     }
 
-    private func getWeather(cities: [String]) {
-        WeatherService.shared.getWeather(cities: cities) { (success, weathers) in
-            if success, let weathers = weathers {
-                print(weathers)
-//                self.update(weather: weathers[0], city: cities[0])
-//                self.update(weather: weathers[1], city: cities[1])
+    private func getWeather() {
+        WeatherService.shared.getWeather() { result in
+            switch result {
+            case .success(let weatherResponse):
+                self.updateUI(with: weatherResponse)
+            case .failure(let error):
+                print(error.localizedDescription)
             }
         }
     }
 
-    private func update(weather: Weather?, city: String) {
-        if city == "Brussels" {
-            if let temperature = weather?.temperature {
-                city1Temperature.text = "\(temperature)°C"
-            }
-            city1Main.text = weather?.general
-            city1Description.text = weather?.description
-        } else {
-            if let temperature = weather?.temperature {
-                city2Temperature.text = "\(temperature)°C"
-            }
-            city2Main.text = weather?.general
-            city2Description.text = weather?.description
+    private func updateUI(with weatherResponse: WeatherResponse) {
+        let weather1 = weatherResponse.weatherArray[0]
+        let weather2 = weatherResponse.weatherArray[1]
+
+        weather1City.text = weather1.city?.uppercased()
+        if let temperature = weather1.temperature?.roundedToOneDecimal {
+            weather1Temperature.text = "\(temperature)°C"
         }
+        weather1Main.text = weather1.general
+        weather1Description.text = weather1.description
+
+        weather2City.text = weather2.city?.uppercased()
+        if let temperature = weather2.temperature?.roundedToOneDecimal {
+            weather2Temperature.text = "\(temperature)°C"
+        }
+        weather2Main.text = weather2.general
+        weather2Description.text = weather2.description
+    }
+}
+
+extension Float {
+    var roundedToOneDecimal: Float {
+        return (self * 10).rounded() / 10
     }
 }
