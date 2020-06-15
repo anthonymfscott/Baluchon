@@ -35,10 +35,6 @@ struct Weather: Decodable {
     struct WeatherText: Decodable {
         var main: String
         var description: String
-
-        enum CodingKeys: String, CodingKey {
-            case main, description
-        }
     }
 
     init(from decoder: Decoder) throws {
