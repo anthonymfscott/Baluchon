@@ -87,7 +87,7 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" image="bannerWhite" translatesAutoresizingMaskIntoConstraints="NO" id="VY8-6Z-4iG" userLabel="bannerWhite2">
                                 <rect key="frame" x="56" y="525.66666666666663" width="390" height="255.33333333333337"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="NEW YORK" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="5" translatesAutoresizingMaskIntoConstraints="NO" id="3TM-EH-UjH" userLabel="City2">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="NEW YORK CITY" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="5" translatesAutoresizingMaskIntoConstraints="NO" id="3TM-EH-UjH" userLabel="City2">
                                 <rect key="frame" x="272" y="761" width="134" height="12"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="10"/>
                                 <nil key="textColor"/>
@@ -191,6 +191,9 @@
                             <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Ee-BY-VRX" userLabel="baluchonGreen">
                                 <rect key="frame" x="167.66666666666666" y="347.33333333333331" width="78.666666666666657" height="162.33333333333331"/>
                                 <state key="normal" image="baluchonGreen"/>
+                                <connections>
+                                    <action selector="baluchonGreenTapped:" destination="ENk-Lf-PWO" eventType="touchUpInside" id="VPH-P2-Lru"/>
+                                </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" image="baluchonStick" translatesAutoresizingMaskIntoConstraints="NO" id="g3v-lw-GOr">
                                 <rect key="frame" x="0.0" y="347.33333333333331" width="414" height="162.66666666666669"/>
@@ -216,11 +219,11 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="25" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fOn-do-H2V" userLabel="TextField">
+                                    <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fOn-do-H2V" userLabel="TextField">
                                         <rect key="frame" x="0.0" y="62.000000000000014" width="157.66666666666666" height="161.33333333333337"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
                                     </textField>
                                 </subviews>
                             </stackView>
@@ -251,7 +254,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" text="22.12" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="3vP-Fm-TxN" userLabel="Amount">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" text="0.89" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="3vP-Fm-TxN" userLabel="Amount">
                                         <rect key="frame" x="0.0" y="62.000000000000014" width="158.33333333333334" height="161.33333333333337"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -261,6 +264,7 @@
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.85782104729999997" green="0.73457247020000005" blue="0.63136053089999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="cgW-gU-F17" firstAttribute="bottom" secondItem="J51-cz-8zx" secondAttribute="bottom" constant="-8" id="7dE-G5-Dbx"/>
                             <constraint firstItem="dSF-qx-RGA" firstAttribute="bottom" secondItem="bNN-vs-Ecv" secondAttribute="bottom" constant="-8" id="9CS-7I-9iK"/>
@@ -291,6 +295,9 @@
                             <constraint firstItem="7Ee-BY-VRX" firstAttribute="top" secondItem="J51-cz-8zx" secondAttribute="bottom" constant="16" id="yAs-oI-DGH"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Gn8-fF-Ftu"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="9iY-DV-QhM" appends="YES" id="i26-cn-ZrZ"/>
+                        </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="Currency" image="money" id="2jW-uV-iKK" userLabel="Currency">
                         <inset key="imageInsets" minX="0.0" minY="39" maxX="0.0" maxY="35"/>
@@ -301,6 +308,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iMH-C7-Uf1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="9iY-DV-QhM">
+                    <connections>
+                        <action selector="dismissKeyboard:" destination="ENk-Lf-PWO" id="POV-lg-BdG"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="4841" y="898"/>
         </scene>

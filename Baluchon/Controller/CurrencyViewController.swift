@@ -14,19 +14,43 @@ class CurrencyViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        convert()
+    }
 
+    @IBAction func baluchonGreenTapped(_ sender: UIButton) {
+        convert()
+    }
+
+    private func convert() {
         CurrencyService.shared.getRate { result in
             switch result {
-            case .success(let rate):
-                self.updateUI(with: rate)
+            case .success(let currency):
+                self.updateUI(with: currency)
             case .failure(let error):
                 print(error.localizedDescription)
             }
         }
     }
 
-    private func updateUI(with rate: Currency) {
-//        resultRate.text = rate.rates["EUR"]!
+    private func updateUI(with currency: Currency) {
+        if let result = calculateEuroValue(with: currency) {
+            resultRate.text = "\(result)"
+        }
+    }
+
+    private func calculateEuroValue(with currency: Currency) -> Float? {
+        var result: Float?
+
+        if let value = inputRate.text {
+            if let floatValue = Float(value) {
+                result = floatValue / currency.rates["USD"]!
+            }
+        }
+
+        return result?.roundedToSecondDecimal
+    }
+    
+    @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
+        inputRate.resignFirstResponder()
     }
 }
-

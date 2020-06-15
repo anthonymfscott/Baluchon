@@ -51,23 +51,17 @@ class WeatherViewController: UIViewController {
         let weather2 = weatherResponse.weatherArray[1]
 
         weather1City.text = weather1.city?.uppercased()
-        if let temperature = weather1.temperature?.roundedToOneDecimal {
+        if let temperature = weather1.temperature?.roundedToFirstDecimal {
             weather1Temperature.text = "\(temperature)°C"
         }
         weather1Main.text = weather1.general
         weather1Description.text = weather1.description
 
         weather2City.text = weather2.city?.uppercased()
-        if let temperature = weather2.temperature?.roundedToOneDecimal {
+        if let temperature = weather2.temperature?.roundedToFirstDecimal {
             weather2Temperature.text = "\(temperature)°C"
         }
         weather2Main.text = weather2.general
         weather2Description.text = weather2.description
-    }
-}
-
-extension Float {
-    var roundedToOneDecimal: Float {
-        return (self * 10).rounded() / 10
     }
 }
