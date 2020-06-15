@@ -8,14 +8,14 @@
 
 import UIKit
 
-class ExchangeRateViewController: UIViewController {
+class CurrencyViewController: UIViewController {
     @IBOutlet var inputRate: UITextField!
     @IBOutlet var resultRate: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        ExchangeRateService.shared.getRate { result in
+        CurrencyService.shared.getRate { result in
             switch result {
             case .success(let rate):
                 self.updateUI(with: rate)
@@ -25,7 +25,7 @@ class ExchangeRateViewController: UIViewController {
         }
     }
 
-    private func updateUI(with rate: ExchangeRate) {
+    private func updateUI(with rate: Currency) {
 //        resultRate.text = rate.rates["EUR"]!
     }
 }

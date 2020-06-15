@@ -32,7 +32,7 @@ class TranslationViewController: UIViewController, UITextViewDelegate {
     }
 
     private func updateUI(with translation: Translation) {
-        resultText.text = translation.translatedText
+//        resultText.text = translation.translatedText
     }
 
     @IBAction private func dismissKeyboard(_ sender: UITapGestureRecognizer) {

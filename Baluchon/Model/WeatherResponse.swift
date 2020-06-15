@@ -1,5 +1,5 @@
 //
-//  Weather.swift
+//  WeatherResponse.swift
 //  Baluchon
 //
 //  Created by anthonymfscott on 08/06/2020.

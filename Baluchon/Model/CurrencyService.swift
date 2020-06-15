@@ -1,5 +1,5 @@
 //
-//  ExchangeRateService.swift
+//  CurrencyService.swift
 //  Baluchon
 //
 //  Created by anthonymfscott on 08/06/2020.
@@ -8,8 +8,8 @@
 
 import Foundation
 
-class ExchangeRateService {
-    static let shared = ExchangeRateService()
+class CurrencyService {
+    static let shared = CurrencyService()
     private init() {}
 
     private let baseUrl = "https://data.fixer.io/api/"
@@ -17,7 +17,7 @@ class ExchangeRateService {
 
     private var task: URLSessionTask?
 
-    func getRate(completed: @escaping (Result<ExchangeRate, NetworkError>) -> Void) {
+    func getRate(completed: @escaping (Result<Currency, NetworkError>) -> Void) {
 //        let url = URL(string: baseUrl + "latest?access_key=\(apiKey)")
 
         let session = URLSession(configuration: .default)
@@ -47,9 +47,8 @@ class ExchangeRateService {
                     return
                 }
 
-
                 do {
-                    let decodedData = try JSONDecoder().decode(ExchangeRate.self, from: data)
+                    let decodedData = try JSONDecoder().decode(Currency.self, from: data)
                     print(decodedData)
                     completed(.success(decodedData))
                 } catch let error {
