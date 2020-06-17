@@ -1,5 +1,5 @@
 //
-//  WeatherResponse.swift
+//  Weather.swift
 //  Baluchon
 //
 //  Created by anthonymfscott on 08/06/2020.
@@ -7,14 +7,6 @@
 //
 
 import Foundation
-
-struct WeatherResponse: Decodable {
-    let weatherArray: [Weather]
-
-    enum CodingKeys: String, CodingKey {
-        case weatherArray = "list"
-    }
-}
 
 struct Weather: Decodable {
     var city: String?
@@ -47,5 +39,13 @@ struct Weather: Decodable {
 
         let main = try container.nestedContainer(keyedBy: MainCodingKeys.self, forKey: .main)
         temperature = try main.decode(Float.self, forKey: .temperature)
+    }
+}
+
+struct WeatherResponse: Decodable {
+    let weatherArray: [Weather]
+
+    enum CodingKeys: String, CodingKey {
+        case weatherArray = "list"
     }
 }

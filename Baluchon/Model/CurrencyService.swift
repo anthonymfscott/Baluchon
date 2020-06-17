@@ -12,19 +12,17 @@ class CurrencyService {
     static let shared = CurrencyService()
     private init() {}
 
-    private let baseUrl = "https://data.fixer.io/api/"
+    private let baseUrl = "http://data.fixer.io/api/"
     private let apiKey = "5d7d6c079441b3412bb1c51f01f231fc"
 
     private var task: URLSessionTask?
 
     func getRate(completed: @escaping (Result<Currency, NetworkError>) -> Void) {
-//        let url = URL(string: baseUrl + "latest?access_key=\(apiKey)")
-
-        let session = URLSession(configuration: .default)
+        let url = URL(string: baseUrl + "latest?access_key=\(apiKey)")!
 
         task?.cancel()
         
-        task = session.dataTask(with: URL(string: "http://data.fixer.io/api/latest?access_key=5d7d6c079441b3412bb1c51f01f231fc")!) { (data, response, error) in
+        task = URLSession.shared.dataTask(with: url) { (data, response, error) in
             DispatchQueue.main.async {
                 if let error = error {
                     completed(.failure(.requestError(description: error.localizedDescription)))
@@ -36,7 +34,7 @@ class CurrencyService {
                     return
                 }
 
-                guard response.statusCode == 200 else {
+                guard response.statusCode >= 200 && response.statusCode < 300 else {
                     completed(.failure(.invalidStatusCode(statusCode: response.statusCode)))
                     return
                 }

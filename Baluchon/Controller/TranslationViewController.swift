@@ -9,15 +9,39 @@
 import UIKit
 
 class TranslationViewController: UIViewController, UITextViewDelegate {
-    @IBOutlet private var inputText: UITextView!
-    @IBOutlet private var resultText: UILabel!
+    @IBOutlet var translationView1: TranslationView!
+    @IBOutlet var translationView2: TranslationView!
+    @IBOutlet var baluchonBlue: UIButton!
+    @IBOutlet var baluchonStick: UIImageView!
+    @IBOutlet var activityIndicator: UIActivityIndicatorView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        translationView1.setDesign()
+        translationView2.setDesign()
+
+        baluchonBlue.layer.shadowColor = CGColor(genericGrayGamma2_2Gray: 0.1, alpha: 0.5)
+        baluchonBlue.layer.shadowRadius = 0.7
+        baluchonBlue.layer.shadowOpacity = 0.5
+        baluchonBlue.layer.shadowOffset = CGSize(width: 2, height: 2)
+
+        baluchonStick.layer.shadowColor = CGColor(genericGrayGamma2_2Gray: 0.1, alpha: 0.5)
+        baluchonStick.layer.shadowRadius = 0.7
+        baluchonStick.layer.shadowOpacity = 0.5
+        baluchonStick.layer.shadowOffset = CGSize(width: 2, height: 2)
+
+        activityIndicator.isHidden = true
+
+        translationView1.inputText?.text = nil
+        translationView2.translatedText?.text = nil
     }
 
     @IBAction private func baluchonBlueTapped(_ sender: UIButton) {
-        translate(inputText.text, to: "en")
+        translationView1.inputText?.resignFirstResponder()
+        if let input = translationView1.inputText?.text {
+             translate(input, to: "en")
+        }
     }
 
     private func translate(_ inputText: String, to targetlanguage: String) {
@@ -32,10 +56,10 @@ class TranslationViewController: UIViewController, UITextViewDelegate {
     }
 
     private func updateUI(with translation: Translation) {
-        resultText.text = translation.translatedText
+        translationView2.translatedText?.text = translation.translatedText
     }
 
     @IBAction private func dismissKeyboard(_ sender: UITapGestureRecognizer) {
-        inputText.resignFirstResponder()
+        translationView1.inputText?.resignFirstResponder()
     }
 }

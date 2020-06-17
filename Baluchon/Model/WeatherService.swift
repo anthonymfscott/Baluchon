@@ -34,7 +34,7 @@ class WeatherService {
                     return
                 }
 
-                guard response.statusCode == 200 else {
+                guard response.statusCode >= 200 && response.statusCode < 300 else {
                     completed(.failure(.invalidStatusCode(statusCode: response.statusCode)))
                     return
                 }

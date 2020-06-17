@@ -9,15 +9,36 @@
 import UIKit
 
 class CurrencyViewController: UIViewController {
-    @IBOutlet var inputRate: UITextField!
-    @IBOutlet var resultRate: UILabel!
+    @IBOutlet var currencyView1: CurrencyView!
+    @IBOutlet var currencyView2: CurrencyView!
+    @IBOutlet var baluchonGreen: UIButton!
+    @IBOutlet var baluchonStick: UIImageView!
+    @IBOutlet var activityIndicator: UIActivityIndicatorView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        convert()
+
+        currencyView1.setDesign()
+        currencyView2.setDesign()
+
+        baluchonGreen.layer.shadowColor = CGColor(genericGrayGamma2_2Gray: 0.1, alpha: 0.5)
+        baluchonGreen.layer.shadowRadius = 0.7
+        baluchonGreen.layer.shadowOpacity = 0.5
+        baluchonGreen.layer.shadowOffset = CGSize(width: 2, height: 2)
+
+        baluchonStick.layer.shadowColor = CGColor(genericGrayGamma2_2Gray: 0.1, alpha: 0.5)
+        baluchonStick.layer.shadowRadius = 0.7
+        baluchonStick.layer.shadowOpacity = 0.5
+        baluchonStick.layer.shadowOffset = CGSize(width: 2, height: 2)
+
+        activityIndicator.isHidden = true
+        
+        currencyView1.inputValue?.text = nil
+        currencyView2.convertedValue?.text = nil
     }
 
     @IBAction func baluchonGreenTapped(_ sender: UIButton) {
+        currencyView1.inputValue?.resignFirstResponder()
         convert()
     }
 
@@ -34,14 +55,14 @@ class CurrencyViewController: UIViewController {
 
     private func updateUI(with currency: Currency) {
         if let result = calculateEuroValue(with: currency) {
-            resultRate.text = "\(result)"
+            currencyView2.convertedValue?.text = "\(result)"
         }
     }
 
     private func calculateEuroValue(with currency: Currency) -> Float? {
         var result: Float?
 
-        if let value = inputRate.text {
+        if let value = currencyView1.inputValue?.text {
             if let floatValue = Float(value) {
                 result = floatValue / currency.rates["USD"]!
             }
@@ -51,6 +72,6 @@ class CurrencyViewController: UIViewController {
     }
     
     @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
-        inputRate.resignFirstResponder()
+        currencyView1.inputValue?.resignFirstResponder()
     }
 }
