@@ -39,13 +39,17 @@ class TranslationViewController: UIViewController, UITextViewDelegate {
 
     @IBAction private func baluchonBlueTapped(_ sender: UIButton) {
         translationView1.inputText?.resignFirstResponder()
+        toggleActivityIndicator(shown: true)
+
         if let input = translationView1.inputText?.text {
-             translate(input, to: "en")
+             getTranslationData(input, to: "en")
         }
     }
 
-    private func translate(_ inputText: String, to targetlanguage: String) {
+    private func getTranslationData(_ inputText: String, to targetlanguage: String) {
         TranslationService.shared.getTranslation(of: inputText, to: targetlanguage) { result in
+            self.toggleActivityIndicator(shown: false)
+
             switch result {
             case .success(let translation):
                 self.updateUI(with: translation)
@@ -54,6 +58,11 @@ class TranslationViewController: UIViewController, UITextViewDelegate {
                 print(error.localizedDescription)
             }
         }
+    }
+
+    private func toggleActivityIndicator(shown: Bool) {
+        activityIndicator.isHidden = !shown
+        baluchonBlue.isEnabled = !shown
     }
 
     private func updateUI(with translation: Translation) {

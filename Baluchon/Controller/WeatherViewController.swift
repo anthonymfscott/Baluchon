@@ -18,10 +18,6 @@ class WeatherViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        reset()
-    }
-
-    private func reset() {
         weatherView1.setDesign()
         weatherView2.setDesign()
 
@@ -47,11 +43,14 @@ class WeatherViewController: UIViewController {
     }
 
     @IBAction func baluchonRedTapped(_ sender: UIButton) {
+        toggleActivityIndicator(shown: true)
         getWeatherData()
     }
 
     private func getWeatherData() {
         WeatherService.shared.getWeather() { result in
+            self.toggleActivityIndicator(shown: false)
+
             switch result {
             case .success(let weatherResponse):
                 self.updateUI(with: weatherResponse)
@@ -60,6 +59,11 @@ class WeatherViewController: UIViewController {
                 print(error.localizedDescription)
             }
         }
+    }
+
+    private func toggleActivityIndicator(shown: Bool) {
+        activityIndicator.isHidden = !shown
+        baluchonRed.isEnabled = !shown
     }
 
     private func updateUI(with weatherResponse: WeatherResponse) {

@@ -39,11 +39,15 @@ class CurrencyViewController: UIViewController {
 
     @IBAction func baluchonGreenTapped(_ sender: UIButton) {
         currencyView1.inputValue?.resignFirstResponder()
-        convert()
+        toggleActivityIndicator(shown: true)
+
+        getCurrencyData()
     }
 
-    private func convert() {
+    private func getCurrencyData() {
         CurrencyService.shared.getRate { result in
+            self.toggleActivityIndicator(shown: false)
+            
             switch result {
             case .success(let currency):
                 self.updateUI(with: currency)
@@ -52,6 +56,11 @@ class CurrencyViewController: UIViewController {
                 print(error.localizedDescription)
             }
         }
+    }
+
+    private func toggleActivityIndicator(shown: Bool) {
+        activityIndicator.isHidden = !shown
+        baluchonGreen.isEnabled = !shown
     }
 
     private func updateUI(with currency: Currency) {
