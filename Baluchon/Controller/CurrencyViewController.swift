@@ -48,6 +48,7 @@ class CurrencyViewController: UIViewController {
             case .success(let currency):
                 self.updateUI(with: currency)
             case .failure(let error):
+                self.presentAlertController()
                 print(error.localizedDescription)
             }
         }
@@ -69,6 +70,12 @@ class CurrencyViewController: UIViewController {
         }
 
         return result?.roundedToSecondDecimal
+    }
+
+    private func presentAlertController() {
+        let ac = UIAlertController(title: "Network error", message: "Please check your Internet connection or try again later.", preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "OK", style: .cancel))
+        present(ac, animated: true)
     }
     
     @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {

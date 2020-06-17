@@ -56,6 +56,7 @@ class WeatherViewController: UIViewController {
             case .success(let weatherResponse):
                 self.updateUI(with: weatherResponse)
             case .failure(let error):
+                self.presentAlertController()
                 print(error.localizedDescription)
             }
         }
@@ -76,5 +77,11 @@ class WeatherViewController: UIViewController {
         }
         weatherView.general.text = weatherData.general
         weatherView.detail.text = weatherData.description
+    }
+
+    private func presentAlertController() {
+        let ac = UIAlertController(title: "Network error", message: "Please check your Internet connection or try again later.", preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "OK", style: .cancel))
+        present(ac, animated: true)
     }
 }

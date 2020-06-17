@@ -50,6 +50,7 @@ class TranslationViewController: UIViewController, UITextViewDelegate {
             case .success(let translation):
                 self.updateUI(with: translation)
             case .failure(let error):
+                self.presentAlertController()
                 print(error.localizedDescription)
             }
         }
@@ -57,6 +58,12 @@ class TranslationViewController: UIViewController, UITextViewDelegate {
 
     private func updateUI(with translation: Translation) {
         translationView2.translatedText?.text = translation.translatedText
+    }
+
+    private func presentAlertController() {
+        let ac = UIAlertController(title: "Network error", message: "Please check your Internet connection or try again later.", preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "OK", style: .cancel))
+        present(ac, animated: true)
     }
 
     @IBAction private func dismissKeyboard(_ sender: UITapGestureRecognizer) {
