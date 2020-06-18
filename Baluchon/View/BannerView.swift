@@ -9,11 +9,17 @@
 import UIKit
 
 class BannerView: UIView {
-    func setDesign() {
-        self.layer.cornerRadius = 50
-        self.layer.shadowColor = CGColor(genericGrayGamma2_2Gray: 0.1, alpha: 0.5)
-        self.layer.shadowRadius = 0.7
-        self.layer.shadowOpacity = 0.5
-        self.layer.shadowOffset = CGSize(width: 2, height: 2)
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        setDesign()
+    }
+
+    private func setDesign() {
+        layer.cornerRadius = 50
+        layer.shadowColor = UIColor.gray.cgColor
+        layer.shadowRadius = 0.7
+        layer.shadowOpacity = 0.5
+        layer.shadowOffset = CGSize(width: 2, height: 2)
     }
 }

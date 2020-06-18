@@ -47,7 +47,6 @@ class CurrencyService {
 
                 do {
                     let decodedData = try JSONDecoder().decode(Currency.self, from: data)
-                    print(decodedData)
                     completed(.success(decodedData))
                 } catch let error {
                     completed(.failure(.decodingError(description: error.localizedDescription)))

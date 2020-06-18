@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		AD09C284248EA95800CF3B07 /* CurrencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD09C283248EA95800CF3B07 /* CurrencyViewController.swift */; };
+		AD24DAF4249BFB130060FB99 /* BaluchonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD24DAF3249BFB130060FB99 /* BaluchonView.swift */; };
 		AD3A22F5249381D100032006 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3A22F4249381D100032006 /* NetworkError.swift */; };
 		AD3CE748248D9D7C00063181 /* TranslationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3CE747248D9D7C00063181 /* TranslationViewController.swift */; };
 		AD3F7C06248EB25200ED0DBA /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3F7C05248EB25200ED0DBA /* WeatherService.swift */; };
@@ -31,6 +32,7 @@
 
 /* Begin PBXFileReference section */
 		AD09C283248EA95800CF3B07 /* CurrencyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyViewController.swift; sourceTree = "<group>"; };
+		AD24DAF3249BFB130060FB99 /* BaluchonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaluchonView.swift; sourceTree = "<group>"; };
 		AD3A22F4249381D100032006 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		AD3CE747248D9D7C00063181 /* TranslationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationViewController.swift; sourceTree = "<group>"; };
 		AD3F7C05248EB25200ED0DBA /* WeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherService.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				ADAF7030248A9EF80058F1A7 /* Main.storyboard */,
+				AD24DAF3249BFB130060FB99 /* BaluchonView.swift */,
 				AD6AE9B2249A1DB100FBBA20 /* BannerView.swift */,
 				AD7FC2182497D88200F1549D /* WeatherView.swift */,
 				AD6AE9B0249A14E100FBBA20 /* TranslationView.swift */,
@@ -210,6 +213,7 @@
 				ADAF702B248A9EF80058F1A7 /* AppDelegate.swift in Sources */,
 				AD3F7C0A248EB71200ED0DBA /* TranslationService.swift in Sources */,
 				AD7FC2192497D88200F1549D /* WeatherView.swift in Sources */,
+				AD24DAF4249BFB130060FB99 /* BaluchonView.swift in Sources */,
 				AD6AE9B7249A2A5600FBBA20 /* CurrencyView.swift in Sources */,
 				AD09C284248EA95800CF3B07 /* CurrencyViewController.swift in Sources */,
 				AD3F7C06248EB25200ED0DBA /* WeatherService.swift in Sources */,

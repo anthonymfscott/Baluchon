@@ -1,5 +1,5 @@
 //
-//  ExchangeRateViewController.swift
+//  CurrencyViewController.swift
 //  Baluchon
 //
 //  Created by anthonymfscott on 08/06/2020.
@@ -9,45 +9,28 @@
 import UIKit
 
 class CurrencyViewController: UIViewController {
-    @IBOutlet var currencyView1: CurrencyView!
-    @IBOutlet var currencyView2: CurrencyView!
-    @IBOutlet var baluchonGreen: UIButton!
-    @IBOutlet var baluchonStick: UIImageView!
-    @IBOutlet var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet private var currencyView1: CurrencyView!
+    @IBOutlet private var currencyView2: CurrencyView!
+    @IBOutlet private var baluchonView: BaluchonView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        currencyView1.setDesign()
-        currencyView2.setDesign()
-
-        baluchonGreen.layer.shadowColor = CGColor(genericGrayGamma2_2Gray: 0.1, alpha: 0.5)
-        baluchonGreen.layer.shadowRadius = 0.7
-        baluchonGreen.layer.shadowOpacity = 0.5
-        baluchonGreen.layer.shadowOffset = CGSize(width: 2, height: 2)
-
-        baluchonStick.layer.shadowColor = CGColor(genericGrayGamma2_2Gray: 0.1, alpha: 0.5)
-        baluchonStick.layer.shadowRadius = 0.7
-        baluchonStick.layer.shadowOpacity = 0.5
-        baluchonStick.layer.shadowOffset = CGSize(width: 2, height: 2)
-
-        activityIndicator.isHidden = true
         
-        currencyView1.inputValue?.text = nil
-        currencyView2.convertedValue?.text = nil
+        currencyView1.inputValueText = ""
+        currencyView2.convertedValueText = ""
     }
 
-    @IBAction func baluchonGreenTapped(_ sender: UIButton) {
+    @IBAction private func baluchonGreenTapped(_ sender: UIButton) {
         currencyView1.inputValue?.resignFirstResponder()
-        toggleActivityIndicator(shown: true)
+        toggleLoadingState(shown: true)
 
         getCurrencyData()
     }
 
     private func getCurrencyData() {
         CurrencyService.shared.getRate { result in
-            self.toggleActivityIndicator(shown: false)
-            
+            self.toggleLoadingState(shown: false)
+
             switch result {
             case .success(let currency):
                 self.updateUI(with: currency)
@@ -58,14 +41,14 @@ class CurrencyViewController: UIViewController {
         }
     }
 
-    private func toggleActivityIndicator(shown: Bool) {
-        activityIndicator.isHidden = !shown
-        baluchonGreen.isEnabled = !shown
+    private func toggleLoadingState(shown: Bool) {
+        baluchonView.isLoading = shown
+        currencyView1.inputValue?.isEnabled = !shown
     }
 
     private func updateUI(with currency: Currency) {
         if let result = calculateEuroValue(with: currency) {
-            currencyView2.convertedValue?.text = "\(result)"
+            currencyView2.convertedValueText = "\(result)"
         }
     }
 
@@ -86,8 +69,10 @@ class CurrencyViewController: UIViewController {
         ac.addAction(UIAlertAction(title: "OK", style: .cancel))
         present(ac, animated: true)
     }
-    
-    @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
+}
+
+extension CurrencyViewController {
+    @IBAction private func dismissKeyboard(_ sender: UITapGestureRecognizer) {
         currencyView1.inputValue?.resignFirstResponder()
     }
 }

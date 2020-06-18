@@ -8,47 +8,30 @@
 
 import UIKit
 
-class TranslationViewController: UIViewController, UITextViewDelegate {
-    @IBOutlet var translationView1: TranslationView!
-    @IBOutlet var translationView2: TranslationView!
-    @IBOutlet var baluchonBlue: UIButton!
-    @IBOutlet var baluchonStick: UIImageView!
-    @IBOutlet var activityIndicator: UIActivityIndicatorView!
+class TranslationViewController: UIViewController {
+    @IBOutlet private var translationView1: TranslationView!
+    @IBOutlet private var translationView2: TranslationView!
+    @IBOutlet private var baluchonView: BaluchonView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        translationView1.setDesign()
-        translationView2.setDesign()
-
-        baluchonBlue.layer.shadowColor = CGColor(genericGrayGamma2_2Gray: 0.1, alpha: 0.5)
-        baluchonBlue.layer.shadowRadius = 0.7
-        baluchonBlue.layer.shadowOpacity = 0.5
-        baluchonBlue.layer.shadowOffset = CGSize(width: 2, height: 2)
-
-        baluchonStick.layer.shadowColor = CGColor(genericGrayGamma2_2Gray: 0.1, alpha: 0.5)
-        baluchonStick.layer.shadowRadius = 0.7
-        baluchonStick.layer.shadowOpacity = 0.5
-        baluchonStick.layer.shadowOffset = CGSize(width: 2, height: 2)
-
-        activityIndicator.isHidden = true
-
-        translationView1.inputText?.text = nil
-        translationView2.translatedText?.text = nil
+        
+        translationView1.inputText = nil
+        translationView2.translatedText = nil
     }
 
     @IBAction private func baluchonBlueTapped(_ sender: UIButton) {
-        translationView1.inputText?.resignFirstResponder()
-        toggleActivityIndicator(shown: true)
+        translationView1.input?.resignFirstResponder()
+        toggleLoadingState(shown: true)
 
-        if let input = translationView1.inputText?.text {
+        if let input = translationView1.input?.text {
              getTranslationData(input, to: "en")
         }
     }
 
     private func getTranslationData(_ inputText: String, to targetlanguage: String) {
         TranslationService.shared.getTranslation(of: inputText, to: targetlanguage) { result in
-            self.toggleActivityIndicator(shown: false)
+            self.toggleLoadingState(shown: false)
 
             switch result {
             case .success(let translation):
@@ -60,13 +43,13 @@ class TranslationViewController: UIViewController, UITextViewDelegate {
         }
     }
 
-    private func toggleActivityIndicator(shown: Bool) {
-        activityIndicator.isHidden = !shown
-        baluchonBlue.isEnabled = !shown
+    private func toggleLoadingState(shown: Bool) {
+        baluchonView.isLoading = shown
+        translationView1.input?.isEditable = !shown
     }
 
     private func updateUI(with translation: Translation) {
-        translationView2.translatedText?.text = translation.translatedText
+        translationView2.translatedText = translation.translatedText
     }
 
     private func presentAlertController() {
@@ -74,8 +57,15 @@ class TranslationViewController: UIViewController, UITextViewDelegate {
         ac.addAction(UIAlertAction(title: "OK", style: .cancel))
         present(ac, animated: true)
     }
+}
 
+extension TranslationViewController: UITextViewDelegate {
     @IBAction private func dismissKeyboard(_ sender: UITapGestureRecognizer) {
-        translationView1.inputText?.resignFirstResponder()
+        translationView1.input?.resignFirstResponder()
+    }
+
+    func textViewShouldEndEditing(_ textView: UITextView) -> Bool {
+        textView.resignFirstResponder()
+        return true
     }
 }

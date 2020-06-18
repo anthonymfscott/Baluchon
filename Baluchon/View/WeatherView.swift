@@ -11,7 +11,25 @@ import UIKit
 class WeatherView: BannerView {
     @IBOutlet var cityImage: UIImageView!
     @IBOutlet var cityName: UILabel!
-    @IBOutlet var temperature: UILabel!
-    @IBOutlet var general: UILabel!
-    @IBOutlet var detail: UILabel!
+    @IBOutlet private var temperature: UILabel!
+    @IBOutlet private var general: UILabel!
+    @IBOutlet private var detail: UILabel!
+    
+    var temperatureText: String? = "" {
+        didSet {
+            temperature.text = temperatureText
+        }
+    }
+
+    var generalText: String? {
+        didSet {
+            general.text = generalText
+        }
+    }
+
+    var detailText: String? {
+        didSet {
+            detail.text = detailText
+        }
+    }
 }

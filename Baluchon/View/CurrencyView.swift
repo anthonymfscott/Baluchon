@@ -12,5 +12,17 @@ class CurrencyView: BannerView {
     @IBOutlet var currencyImage: UIImageView!
     @IBOutlet var currencyName: UILabel!
     @IBOutlet var inputValue: UITextField?
-    @IBOutlet var convertedValue: UILabel?
+    @IBOutlet private var convertedValue: UILabel?
+
+    var inputValueText: String? {
+        didSet {
+            inputValue?.text = inputValueText
+        }
+    }
+
+    var convertedValueText: String? {
+        didSet {
+            convertedValue?.text = convertedValueText
+        }
+    }
 }
