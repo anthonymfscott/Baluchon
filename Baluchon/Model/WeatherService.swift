@@ -13,7 +13,7 @@ class WeatherService {
     private init() {}
 
     private let baseUrl = "https://api.openweathermap.org/data/2.5/"
-    private let apiKey = "10f66a10b9cad69c5478404e51823159"
+    private let apiKey = valueForAPIKey(named: "API_OpenWeathermap")
 
     private var task: URLSessionTask?
 

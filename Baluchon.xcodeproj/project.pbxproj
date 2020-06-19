@@ -22,6 +22,8 @@
 		AD6AE9B7249A2A5600FBBA20 /* CurrencyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6AE9B6249A2A5600FBBA20 /* CurrencyView.swift */; };
 		AD7FC21524979AD600F1549D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7FC21424979AD600F1549D /* Extensions.swift */; };
 		AD7FC2192497D88200F1549D /* WeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7FC2182497D88200F1549D /* WeatherView.swift */; };
+		ADAA9D4E249D2F5D00FEEBD3 /* ApiKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = ADAA9D4D249D2F5D00FEEBD3 /* ApiKeys.plist */; };
+		ADAA9D50249D340400FEEBD3 /* ApiKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAA9D4F249D340400FEEBD3 /* ApiKeys.swift */; };
 		ADAF702B248A9EF80058F1A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAF702A248A9EF80058F1A7 /* AppDelegate.swift */; };
 		ADAF702D248A9EF80058F1A7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAF702C248A9EF80058F1A7 /* SceneDelegate.swift */; };
 		ADAF702F248A9EF80058F1A7 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAF702E248A9EF80058F1A7 /* WeatherViewController.swift */; };
@@ -46,6 +48,8 @@
 		AD6AE9B6249A2A5600FBBA20 /* CurrencyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyView.swift; sourceTree = "<group>"; };
 		AD7FC21424979AD600F1549D /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		AD7FC2182497D88200F1549D /* WeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherView.swift; sourceTree = "<group>"; };
+		ADAA9D4D249D2F5D00FEEBD3 /* ApiKeys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ApiKeys.plist; sourceTree = "<group>"; };
+		ADAA9D4F249D340400FEEBD3 /* ApiKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ApiKeys.swift; path = ../Model/ApiKeys.swift; sourceTree = "<group>"; };
 		ADAF7027248A9EF80058F1A7 /* Baluchon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Baluchon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADAF702A248A9EF80058F1A7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ADAF702C248A9EF80058F1A7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -67,6 +71,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		ADAA9D51249D35AF00FEEBD3 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				ADAF702A248A9EF80058F1A7 /* AppDelegate.swift */,
+				ADAF702C248A9EF80058F1A7 /* SceneDelegate.swift */,
+				ADAA9D4D249D2F5D00FEEBD3 /* ApiKeys.plist */,
+				ADAA9D4F249D340400FEEBD3 /* ApiKeys.swift */,
+				AD3A22F4249381D100032006 /* NetworkError.swift */,
+				AD7FC21424979AD600F1549D /* Extensions.swift */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		ADAF701E248A9EF80058F1A7 = {
 			isa = PBXGroup;
 			children = (
@@ -86,11 +103,10 @@
 		ADAF7029248A9EF80058F1A7 /* Baluchon */ = {
 			isa = PBXGroup;
 			children = (
-				ADAF702A248A9EF80058F1A7 /* AppDelegate.swift */,
-				ADAF702C248A9EF80058F1A7 /* SceneDelegate.swift */,
 				ADAF7040248A9F240058F1A7 /* Model */,
 				ADAF703E248A9F100058F1A7 /* Controller */,
 				ADAF703F248A9F180058F1A7 /* View */,
+				ADAA9D51249D35AF00FEEBD3 /* Supporting Files */,
 				ADAF7038248A9EFA0058F1A7 /* Info.plist */,
 			);
 			path = Baluchon;
@@ -130,8 +146,6 @@
 				AD3F7C09248EB71200ED0DBA /* TranslationService.swift */,
 				AD3F7C0F248ED9A600ED0DBA /* Currency.swift */,
 				AD3F7C0D248ED99600ED0DBA /* CurrencyService.swift */,
-				AD3A22F4249381D100032006 /* NetworkError.swift */,
-				AD7FC21424979AD600F1549D /* Extensions.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -195,6 +209,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ADAF7037248A9EFA0058F1A7 /* LaunchScreen.storyboard in Resources */,
+				ADAA9D4E249D2F5D00FEEBD3 /* ApiKeys.plist in Resources */,
 				ADAF7034248A9EFA0058F1A7 /* Assets.xcassets in Resources */,
 				ADAF7032248A9EF80058F1A7 /* Main.storyboard in Resources */,
 			);
@@ -216,6 +231,7 @@
 				AD24DAF4249BFB130060FB99 /* BaluchonView.swift in Sources */,
 				AD6AE9B7249A2A5600FBBA20 /* CurrencyView.swift in Sources */,
 				AD09C284248EA95800CF3B07 /* CurrencyViewController.swift in Sources */,
+				ADAA9D50249D340400FEEBD3 /* ApiKeys.swift in Sources */,
 				AD3F7C06248EB25200ED0DBA /* WeatherService.swift in Sources */,
 				AD3F7C10248ED9A600ED0DBA /* Currency.swift in Sources */,
 				AD7FC21524979AD600F1549D /* Extensions.swift in Sources */,

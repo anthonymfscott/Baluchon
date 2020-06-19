@@ -13,7 +13,7 @@ class CurrencyService {
     private init() {}
 
     private let baseUrl = "http://data.fixer.io/api/"
-    private let apiKey = "5d7d6c079441b3412bb1c51f01f231fc"
+    private let apiKey = valueForAPIKey(named: "API_Fixer")
 
     private var task: URLSessionTask?
 
