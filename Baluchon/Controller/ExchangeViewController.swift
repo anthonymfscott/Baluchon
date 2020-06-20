@@ -15,7 +15,13 @@ class ExchangeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+        exchangeView1.currencyNameText = "USD"
+        exchangeView2.currencyNameText = "EUR"
+
+        exchangeView1.currencyIcon = UIImage(named: "dollar")
+        exchangeView2.currencyIcon = UIImage(named: "euro")
+
         exchangeView1.inputValueText = "1"
         exchangeView2.convertedValueText = ""
 
@@ -66,6 +72,16 @@ class ExchangeViewController: UIViewController {
         }
 
         return result?.roundedToSecondDecimal
+    }
+
+    @IBAction func swapCurrenciesTapped(_ sender: UIButton) {
+        let currencyCopy = exchangeView1.currencyNameText
+        exchangeView1.currencyNameText = exchangeView2.currencyNameText
+        exchangeView2.currencyNameText = currencyCopy
+
+        let imageCopy = exchangeView1.currencyIcon
+        exchangeView1.currencyIcon = exchangeView2.currencyIcon
+        exchangeView2.currencyIcon = imageCopy
     }
 
     private func presentAlertController() {

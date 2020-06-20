@@ -9,10 +9,23 @@
 import UIKit
 
 class ExchangeView: BannerView {
-    @IBOutlet var currencyImage: UIImageView!
-    @IBOutlet var currencyName: UILabel!
+    @IBOutlet private var currencyImage: UIImageView!
+    @IBOutlet private var currencyName: UILabel!
     @IBOutlet var inputValue: UITextField?
     @IBOutlet private var convertedValue: UILabel?
+
+    var currencyIcon: UIImage? {
+        didSet {
+            currencyImage.image = currencyIcon
+        }
+    }
+
+    var currencyNameText: String? {
+        didSet {
+            currencyName.text = currencyNameText
+        }
+    }
+    
 
     var inputValueText: String? {
         didSet {

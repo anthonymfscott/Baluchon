@@ -350,7 +350,7 @@
                                     <constraint firstItem="ZpV-3h-sRO" firstAttribute="top" secondItem="JRU-ZJ-wgl" secondAttribute="top" constant="16" id="rVe-7u-RPY"/>
                                 </constraints>
                                 <connections>
-                                    <outlet property="currencyImage" destination="cgW-gU-F17" id="hfR-8e-njV"/>
+                                    <outlet property="currencyImage" destination="cgW-gU-F17" id="9UB-OE-we1"/>
                                     <outlet property="currencyName" destination="9Oa-Pu-alE" id="rfk-Qf-fZe"/>
                                     <outlet property="inputValue" destination="fOn-do-H2V" id="zsm-bg-oKW"/>
                                 </connections>
@@ -439,22 +439,36 @@
                                 </constraints>
                                 <connections>
                                     <outlet property="convertedValue" destination="3vP-Fm-TxN" id="jLo-VJ-0Dj"/>
-                                    <outlet property="currencyImage" destination="dSF-qx-RGA" id="owD-Rw-Z9M"/>
+                                    <outlet property="currencyImage" destination="dSF-qx-RGA" id="Y0m-ZQ-Qdo"/>
                                     <outlet property="currencyName" destination="tGN-4C-PEq" id="ZrI-JK-kh8"/>
                                 </connections>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X2w-up-G7h">
+                                <rect key="frame" x="198" y="330.5" width="114" height="18"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
+                                <color key="tintColor" red="0.0003354974324" green="0.3785426617" blue="0.054765500129999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="Swap currencies" image="arrow.swap" catalog="system">
+                                    <color key="titleColor" red="0.0003354974324" green="0.3785426617" blue="0.054765500129999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <action selector="swapCurrenciesTapped:" destination="ENk-Lf-PWO" eventType="touchUpInside" id="Jom-z5-FGT"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.85782104729999997" green="0.73457247020000005" blue="0.63136053089999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <gestureRecognizers/>
                         <constraints>
+                            <constraint firstItem="Gn8-fF-Ftu" firstAttribute="trailing" secondItem="X2w-up-G7h" secondAttribute="trailing" constant="8" id="6MO-it-qxh"/>
                             <constraint firstItem="Gn8-fF-Ftu" firstAttribute="trailing" secondItem="t1A-Ff-iEa" secondAttribute="trailing" id="AXQ-Nh-OY8"/>
                             <constraint firstItem="QBc-EJ-aMx" firstAttribute="height" secondItem="JRU-ZJ-wgl" secondAttribute="height" multiplier="1.01562" id="HXB-G0-xaU"/>
                             <constraint firstItem="JRU-ZJ-wgl" firstAttribute="trailing" secondItem="Gn8-fF-Ftu" secondAttribute="trailing" constant="-56" id="KzK-zu-OV9"/>
                             <constraint firstItem="Gn8-fF-Ftu" firstAttribute="bottom" secondItem="QBc-EJ-aMx" secondAttribute="bottom" constant="32" id="OZY-zu-xeY"/>
                             <constraint firstItem="QBc-EJ-aMx" firstAttribute="leading" secondItem="Gn8-fF-Ftu" secondAttribute="leading" constant="56" id="Oee-CA-Khe"/>
+                            <constraint firstItem="QBc-EJ-aMx" firstAttribute="top" secondItem="X2w-up-G7h" secondAttribute="bottom" constant="8" id="QRg-fT-Ifa"/>
                             <constraint firstItem="t1A-Ff-iEa" firstAttribute="leading" secondItem="Gn8-fF-Ftu" secondAttribute="leading" id="e6g-cx-Rq7"/>
                             <constraint firstItem="QBc-EJ-aMx" firstAttribute="trailing" secondItem="Gn8-fF-Ftu" secondAttribute="trailing" constant="32" id="ePy-Ql-Tg2"/>
                             <constraint firstItem="JRU-ZJ-wgl" firstAttribute="leading" secondItem="Gn8-fF-Ftu" secondAttribute="leading" constant="-32" id="foa-Du-SQs"/>
+                            <constraint firstItem="X2w-up-G7h" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Gn8-fF-Ftu" secondAttribute="leading" symbolic="YES" id="iwG-3i-a88"/>
                             <constraint firstItem="t1A-Ff-iEa" firstAttribute="centerY" secondItem="Gn8-fF-Ftu" secondAttribute="centerY" id="nSi-17-2yN"/>
                             <constraint firstItem="t1A-Ff-iEa" firstAttribute="centerX" secondItem="Gn8-fF-Ftu" secondAttribute="centerX" id="p27-MP-26c"/>
                             <constraint firstItem="t1A-Ff-iEa" firstAttribute="top" secondItem="JRU-ZJ-wgl" secondAttribute="bottom" constant="16" id="qfv-dG-tNd"/>
@@ -639,15 +653,24 @@
                                     <outlet property="translation" destination="BkX-sQ-P6e" id="QTy-lW-jXg"/>
                                 </connections>
                             </view>
-                            <button opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CKW-rH-wz9">
-                                <rect key="frame" x="275" y="214.5" width="45" height="90"/>
-                                <state key="normal" image="parameters"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CKW-rH-wz9">
+                                <rect key="frame" x="199" y="331" width="113" height="18"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
+                                <color key="tintColor" red="0.019988024609999998" green="0.0" blue="0.58043283219999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="Swap languages" image="arrow.swap" catalog="system">
+                                    <color key="titleColor" red="0.019988024609999998" green="0.0" blue="0.58043283219999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <action selector="swapLanguagesTapped:" destination="ZN2-ey-Vs6" eventType="touchUpInside" id="L8N-1H-ZI6"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.85782104729999997" green="0.73457247020000005" blue="0.63136053089999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <gestureRecognizers/>
                         <constraints>
+                            <constraint firstItem="vap-xF-uAa" firstAttribute="trailing" secondItem="CKW-rH-wz9" secondAttribute="trailing" constant="8" id="0m5-6W-ItN"/>
                             <constraint firstItem="vap-xF-uAa" firstAttribute="trailing" secondItem="E7l-3v-dp1" secondAttribute="trailing" constant="56" id="16Q-qJ-cPG"/>
+                            <constraint firstItem="CKW-rH-wz9" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="vap-xF-uAa" secondAttribute="leading" symbolic="YES" id="4b8-MT-cOD"/>
                             <constraint firstItem="1D0-we-5fP" firstAttribute="top" secondItem="wlL-4t-LRM" secondAttribute="bottom" constant="16" id="55V-4m-eIq"/>
                             <constraint firstItem="E7l-3v-dp1" firstAttribute="leading" secondItem="vap-xF-uAa" secondAttribute="leading" constant="-32" id="94u-0t-4Hr"/>
                             <constraint firstItem="1D0-we-5fP" firstAttribute="leading" secondItem="vap-xF-uAa" secondAttribute="leading" constant="56" id="Bms-Oh-wTY"/>
@@ -655,12 +678,11 @@
                             <constraint firstItem="vap-xF-uAa" firstAttribute="trailing" secondItem="1D0-we-5fP" secondAttribute="trailing" constant="-32" id="ONU-gP-gme"/>
                             <constraint firstItem="vap-xF-uAa" firstAttribute="bottom" secondItem="1D0-we-5fP" secondAttribute="bottom" constant="32" id="Rx6-KW-xvX"/>
                             <constraint firstItem="wlL-4t-LRM" firstAttribute="centerY" secondItem="vap-xF-uAa" secondAttribute="centerY" id="WQk-14-Qef"/>
+                            <constraint firstItem="1D0-we-5fP" firstAttribute="top" secondItem="CKW-rH-wz9" secondAttribute="bottom" constant="8" id="fws-ho-HS3"/>
                             <constraint firstItem="1D0-we-5fP" firstAttribute="height" secondItem="E7l-3v-dp1" secondAttribute="height" multiplier="1.01562" id="iIr-Ms-YyU"/>
-                            <constraint firstItem="CKW-rH-wz9" firstAttribute="trailing" secondItem="vap-xF-uAa" secondAttribute="trailing" id="jjU-r4-4te"/>
                             <constraint firstItem="wlL-4t-LRM" firstAttribute="leading" secondItem="vap-xF-uAa" secondAttribute="leading" id="kwG-mA-bfq"/>
                             <constraint firstItem="wlL-4t-LRM" firstAttribute="top" secondItem="E7l-3v-dp1" secondAttribute="bottom" constant="16" id="o1c-8l-rMC"/>
                             <constraint firstItem="vap-xF-uAa" firstAttribute="trailing" secondItem="wlL-4t-LRM" secondAttribute="trailing" id="rBR-e1-waW"/>
-                            <constraint firstItem="CKW-rH-wz9" firstAttribute="centerY" secondItem="vap-xF-uAa" secondAttribute="centerY" id="vnn-mm-USO"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vap-xF-uAa"/>
                         <connections>
@@ -683,10 +705,11 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="5781" y="897"/>
+            <point key="canvasLocation" x="5780.625" y="896.83098591549299"/>
         </scene>
     </scenes>
     <resources>
+        <image name="arrow.swap" catalog="system" width="128" height="100"/>
         <image name="baluchonBlue" width="78" height="162.5"/>
         <image name="baluchonGreen" width="78" height="163"/>
         <image name="baluchonRed" width="79" height="162.5"/>
@@ -696,7 +719,6 @@
         <image name="france" width="512" height="512"/>
         <image name="manneken pis" width="330" height="510"/>
         <image name="money" width="100" height="100"/>
-        <image name="parameters" width="45" height="90"/>
         <image name="statue of liberty" width="330" height="510"/>
         <image name="translate" width="100" height="100"/>
         <image name="uk" width="512" height="512"/>

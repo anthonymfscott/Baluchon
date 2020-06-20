@@ -9,10 +9,22 @@
 import UIKit
 
 class TranslationView: BannerView {
-    @IBOutlet var languageImage: UIImageView!
-    @IBOutlet var languageName: UILabel!
+    @IBOutlet private var languageImage: UIImageView!
+    @IBOutlet private var languageName: UILabel!
     @IBOutlet var input: UITextView?
     @IBOutlet private var translation: UILabel?
+
+    var languageIcon: UIImage? {
+        didSet {
+            languageImage.image = languageIcon
+        }
+    }
+
+    var languageNameText: String? {
+        didSet {
+            languageName.text = languageNameText
+        }
+    }
 
     var inputText: String? {
         didSet {

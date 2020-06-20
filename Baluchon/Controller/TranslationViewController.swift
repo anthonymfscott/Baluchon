@@ -15,7 +15,13 @@ class TranslationViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+        translationView1.languageNameText = "FR"
+        translationView2.languageNameText = "EN"
+
+        translationView1.languageIcon = UIImage(named: "france")
+        translationView2.languageIcon = UIImage(named: "uk")
+
         translationView1.inputText = "Où se trouve la gare svp ?"
         translationView2.translatedText = nil
 
@@ -54,6 +60,16 @@ class TranslationViewController: UIViewController {
 
     private func updateUI(with translation: Translation) {
         translationView2.translatedText = translation.translatedText
+    }
+
+    @IBAction func swapLanguagesTapped(_ sender: UIButton) {
+        let languageCopy = translationView1.languageNameText
+        translationView1.languageNameText = translationView2.languageNameText
+        translationView2.languageNameText = languageCopy
+
+        let imageCopy = translationView1.languageIcon
+        translationView1.languageIcon = translationView2.languageIcon
+        translationView2.languageIcon = imageCopy
     }
 
     private func presentAlertController() {
