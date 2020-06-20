@@ -1,7 +1,8 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -11,9 +12,40 @@
             <objects>
                 <viewController id="01J-lp-oVM" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uib-Dh-wIi">
+                                <rect key="frame" x="0.0" y="286.66666666666669" width="414" height="162.66666666666669"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PiP-qV-v8w" userLabel="baluchonRed">
+                                        <rect key="frame" x="167.66666666666666" y="0.0" width="79" height="162.66666666666666"/>
+                                        <state key="normal" image="baluchonRed"/>
+                                    </button>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" image="baluchonStick" translatesAutoresizingMaskIntoConstraints="NO" id="x2b-0y-4HF">
+                                        <rect key="frame" x="0.66666666666665719" y="0.0" width="413" height="163"/>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="PiP-qV-v8w" firstAttribute="centerX" secondItem="Uib-Dh-wIi" secondAttribute="centerX" id="9AQ-WM-E9W"/>
+                                    <constraint firstAttribute="height" constant="162.66666666666669" id="B1N-Qr-eRG"/>
+                                    <constraint firstItem="x2b-0y-4HF" firstAttribute="centerX" secondItem="Uib-Dh-wIi" secondAttribute="centerX" id="Lmo-Xt-ZHw"/>
+                                    <constraint firstItem="PiP-qV-v8w" firstAttribute="centerY" secondItem="Uib-Dh-wIi" secondAttribute="centerY" id="fhE-XL-oOS"/>
+                                    <constraint firstItem="x2b-0y-4HF" firstAttribute="centerY" secondItem="Uib-Dh-wIi" secondAttribute="centerY" id="hPp-Pv-OCF"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="baluchonButton" destination="PiP-qV-v8w" id="Mai-3l-xdX"/>
+                                    <outlet property="baluchonStick" destination="x2b-0y-4HF" id="Z5u-F3-j85"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.85782104729999997" green="0.73457247020000005" blue="0.63136053089999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="Uib-Dh-wIi" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="1JO-P3-ycT"/>
+                            <constraint firstItem="Uib-Dh-wIi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="N8j-ry-1ot"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Uib-Dh-wIi" secondAttribute="trailing" id="Sh9-hT-Hvw"/>
+                            <constraint firstItem="Uib-Dh-wIi" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="h1G-fO-p4n"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
@@ -22,4 +54,8 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="baluchonRed" width="78.666664123535156" height="162.33332824707031"/>
+        <image name="baluchonStick" width="413" height="162.66667175292969"/>
+    </resources>
 </document>
