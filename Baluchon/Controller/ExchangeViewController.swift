@@ -8,32 +8,32 @@
 
 import UIKit
 
-class CurrencyViewController: UIViewController {
-    @IBOutlet private var currencyView1: CurrencyView!
-    @IBOutlet private var currencyView2: CurrencyView!
+class ExchangeViewController: UIViewController {
+    @IBOutlet private var exchangeView1: ExchangeView!
+    @IBOutlet private var exchangeView2: ExchangeView!
     @IBOutlet private var baluchonView: BaluchonView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        currencyView1.inputValueText = ""
-        currencyView2.convertedValueText = ""
+        exchangeView1.inputValueText = ""
+        exchangeView2.convertedValueText = ""
     }
 
     @IBAction private func baluchonGreenTapped(_ sender: UIButton) {
-        currencyView1.inputValue?.resignFirstResponder()
+        exchangeView1.inputValue?.resignFirstResponder()
         toggleLoadingState(shown: true)
 
         getCurrencyData()
     }
 
     private func getCurrencyData() {
-        CurrencyService.shared.getRate { result in
+        ExchangeService.shared.getExchange { result in
             self.toggleLoadingState(shown: false)
 
             switch result {
-            case .success(let currency):
-                self.updateUI(with: currency)
+            case .success(let exchange):
+                self.updateUI(with: exchange)
             case .failure(let error):
                 self.presentAlertController()
                 print(error.localizedDescription)
@@ -43,21 +43,21 @@ class CurrencyViewController: UIViewController {
 
     private func toggleLoadingState(shown: Bool) {
         baluchonView.isLoading = shown
-        currencyView1.inputValue?.isEnabled = !shown
+        exchangeView1.inputValue?.isEnabled = !shown
     }
 
-    private func updateUI(with currency: Currency) {
-        if let result = calculateEuroValue(with: currency) {
-            currencyView2.convertedValueText = "\(result)"
+    private func updateUI(with exchange: Exchange) {
+        if let result = calculateEuroValue(with: exchange) {
+            exchangeView2.convertedValueText = "\(result)"
         }
     }
 
-    private func calculateEuroValue(with currency: Currency) -> Float? {
+    private func calculateEuroValue(with exchange: Exchange) -> Float? {
         var result: Float?
 
-        if let value = currencyView1.inputValue?.text {
+        if let value = exchangeView1.inputValue?.text {
             if let floatValue = Float(value) {
-                result = floatValue / currency.rates["USD"]!
+                result = floatValue / exchange.rates["USD"]!
             }
         }
 
@@ -71,8 +71,8 @@ class CurrencyViewController: UIViewController {
     }
 }
 
-extension CurrencyViewController {
+extension ExchangeViewController {
     @IBAction private func dismissKeyboard(_ sender: UITapGestureRecognizer) {
-        currencyView1.inputValue?.resignFirstResponder()
+        exchangeView1.inputValue?.resignFirstResponder()
     }
 }

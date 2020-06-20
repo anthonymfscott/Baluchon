@@ -15,14 +15,19 @@ class WeatherService {
     private let baseUrl = "https://api.openweathermap.org/data/2.5/"
     private let apiKey = valueForAPIKey(named: "API_OpenWeathermap")
 
+    private var session = URLSession(configuration: .default)
     private var task: URLSessionTask?
+
+    init(session: URLSession) {
+        self.session = session
+    }
 
     func getWeather(completed: @escaping (Result<WeatherResponse, NetworkError>) -> Void) {
         let url = URL(string: baseUrl + "group?id=2800866,5128581&units=metric&appid=\(apiKey)")!
 
         task?.cancel()
 
-        task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+        task = session.dataTask(with: url) { (data, response, error) in
             DispatchQueue.main.async {
                 if let error = error {
                     completed(.failure(.requestError(description: error.localizedDescription)))

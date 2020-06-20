@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CurrencyView: BannerView {
+class ExchangeView: BannerView {
     @IBOutlet var currencyImage: UIImageView!
     @IBOutlet var currencyName: UILabel!
     @IBOutlet var inputValue: UITextField?

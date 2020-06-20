@@ -18,3 +18,16 @@ struct Translation: Decodable {
     }
     let data: Data
 }
+
+
+//struct Translation: Decodable {
+//    let data: Data
+//}
+//
+//struct Data : Decodable {
+//    let translations : [Translations]
+//}
+//
+//struct Translations: Decodable {
+//    let translatedText: String?
+//}

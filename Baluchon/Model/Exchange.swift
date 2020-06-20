@@ -1,5 +1,5 @@
 //
-//  Currency.swift
+//  Exchange.swift
 //  Baluchon
 //
 //  Created by anthonymfscott on 08/06/2020.
@@ -8,6 +8,6 @@
 
 import Foundation
 
-struct Currency: Decodable {
+struct Exchange: Decodable {
     let rates: [String: Float]
 }

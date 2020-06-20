@@ -1,0 +1,82 @@
+{
+    "cnt": 2,
+    "list": [
+        {
+            "coord": {
+                "lon": 4.35,
+                "lat": 50.85
+            },
+            "sys": {
+                "country": "BE",
+                "timezone": 7200,
+                "sunrise": 1592623721,
+                "sunset": 1592683186
+            },
+            "weather": [
+                {
+                    "id": 802,
+                    "main": "Clouds",
+                    "description": "scattered clouds",
+                    "icon": "03d"
+                }
+            ],
+            "main": {
+                "temp": 21.84,
+                "feels_like": 20.47,
+                "temp_min": 21.11,
+                "temp_max": 22.22,
+                "pressure": 1022,
+                "humidity": 49
+            },
+            "wind": {
+                "speed": 2.27,
+                "deg": 293
+            },
+            "clouds": {
+                "all": 36
+            },
+            "dt": 1592658452,
+            "id": 2800866,
+            "name": "Brussels"
+        },
+        {
+            "coord": {
+                "lon": -74.01,
+                "lat": 40.71
+            },
+            "sys": {
+                "country": "US",
+                "timezone": -14400,
+                "sunrise": 1592645095,
+                "sunset": 1592699429
+            },
+            "weather": [
+                {
+                    "id": 800,
+                    "main": "Clear",
+                    "description": "clear sky",
+                    "icon": "01d"
+                }
+            ],
+            "main": {
+                "temp": 23.54,
+                "feels_like": 25.52,
+                "temp_min": 21.67,
+                "temp_max": 26.11,
+                "pressure": 1019,
+                "humidity": 78
+            },
+            "visibility": 16093,
+            "wind": {
+                "speed": 2.1,
+                "deg": 260
+            },
+            "clouds": {
+                "all": 1
+            },
+            "dt": 1592658940,
+            "id": 5128581,
+            "name": "New York City"
+        }
+    ]
+}

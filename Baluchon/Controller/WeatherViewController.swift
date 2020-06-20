@@ -49,7 +49,7 @@ class WeatherViewController: UIViewController {
     }
 
     private func updateUI(with weatherResponse: WeatherResponse) {
-        let weatherData1 = weatherResponse.weatherArray[safe: 0]
+        let weatherData1 = weatherResponse.weatherArray.first
         let weatherData2 = weatherResponse.weatherArray.last
 
         update(weatherView1, with: weatherData1)
@@ -61,7 +61,7 @@ class WeatherViewController: UIViewController {
             weatherView.temperatureText = "\(temperature)°C"
         }
         weatherView.generalText = weatherData?.general
-        weatherView.detailText = weatherData?.description
+        weatherView.detailText = weatherData?.detail
     }
 
     private func presentAlertController() {

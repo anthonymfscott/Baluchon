@@ -291,15 +291,15 @@
             </objects>
             <point key="canvasLocation" x="4886" y="897"/>
         </scene>
-        <!--Currency-->
+        <!--Exchange-->
         <scene sceneID="gI0-rG-sLG">
             <objects>
-                <viewController id="ENk-Lf-PWO" userLabel="Currency" customClass="CurrencyViewController" customModule="Baluchon" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="ENk-Lf-PWO" userLabel="Exchange" customClass="ExchangeViewController" customModule="Baluchon" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Frf-xR-qAp">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JRU-ZJ-wgl" userLabel="Currency1 View" customClass="CurrencyView" customModule="Baluchon" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JRU-ZJ-wgl" userLabel="Exchange1 View" customClass="ExchangeView" customModule="Baluchon" customModuleProvider="target">
                                 <rect key="frame" x="-32" y="34" width="296" height="128.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="ZpV-3h-sRO">
@@ -350,9 +350,9 @@
                                     <constraint firstItem="ZpV-3h-sRO" firstAttribute="top" secondItem="JRU-ZJ-wgl" secondAttribute="top" constant="16" id="rVe-7u-RPY"/>
                                 </constraints>
                                 <connections>
-                                    <outlet property="currencyImage" destination="cgW-gU-F17" id="iFM-Mg-kNZ"/>
-                                    <outlet property="currencyName" destination="9Oa-Pu-alE" id="nwZ-G5-IHy"/>
-                                    <outlet property="inputValue" destination="fOn-do-H2V" id="m92-DH-2Ol"/>
+                                    <outlet property="currencyImage" destination="cgW-gU-F17" id="hfR-8e-njV"/>
+                                    <outlet property="currencyName" destination="9Oa-Pu-alE" id="rfk-Qf-fZe"/>
+                                    <outlet property="inputValue" destination="fOn-do-H2V" id="zsm-bg-oKW"/>
                                 </connections>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t1A-Ff-iEa" customClass="BaluchonView" customModule="Baluchon" customModuleProvider="target">
@@ -387,7 +387,7 @@
                                     <outlet property="baluchonStick" destination="g3v-lw-GOr" id="55I-Je-AC2"/>
                                 </connections>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QBc-EJ-aMx" userLabel="Curency2 View" customClass="CurrencyView" customModule="Baluchon" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QBc-EJ-aMx" userLabel="Exchange2 View" customClass="ExchangeView" customModule="Baluchon" customModuleProvider="target">
                                 <rect key="frame" x="56" y="356.5" width="296" height="130.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="bZ3-i6-vgl">
@@ -438,9 +438,9 @@
                                     <constraint firstItem="bZ3-i6-vgl" firstAttribute="leading" secondItem="QBc-EJ-aMx" secondAttribute="leading" constant="24" id="soA-17-Qfr"/>
                                 </constraints>
                                 <connections>
-                                    <outlet property="convertedValue" destination="3vP-Fm-TxN" id="ot5-4e-sKr"/>
-                                    <outlet property="currencyImage" destination="dSF-qx-RGA" id="a9E-VP-IGe"/>
-                                    <outlet property="currencyName" destination="tGN-4C-PEq" id="eG2-6H-SUM"/>
+                                    <outlet property="convertedValue" destination="3vP-Fm-TxN" id="jLo-VJ-0Dj"/>
+                                    <outlet property="currencyImage" destination="dSF-qx-RGA" id="owD-Rw-Z9M"/>
+                                    <outlet property="currencyName" destination="tGN-4C-PEq" id="ZrI-JK-kh8"/>
                                 </connections>
                             </view>
                         </subviews>
@@ -465,13 +465,13 @@
                             <outletCollection property="gestureRecognizers" destination="9iY-DV-QhM" appends="YES" id="i26-cn-ZrZ"/>
                         </connections>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Currency" image="money" id="2jW-uV-iKK" userLabel="Currency">
+                    <tabBarItem key="tabBarItem" title="Exchange" image="money" id="2jW-uV-iKK" userLabel="Exchange">
                         <inset key="imageInsets" minX="0.0" minY="39" maxX="0.0" maxY="35"/>
                     </tabBarItem>
                     <connections>
                         <outlet property="baluchonView" destination="t1A-Ff-iEa" id="70z-ua-gEY"/>
-                        <outlet property="currencyView1" destination="JRU-ZJ-wgl" id="8BN-0z-7xW"/>
-                        <outlet property="currencyView2" destination="QBc-EJ-aMx" id="yy6-aq-a9m"/>
+                        <outlet property="exchangeView1" destination="JRU-ZJ-wgl" id="1oR-dL-5QB"/>
+                        <outlet property="exchangeView2" destination="QBc-EJ-aMx" id="4pZ-hN-Vc5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iMH-C7-Uf1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -523,12 +523,12 @@
                                                             </label>
                                                         </subviews>
                                                     </stackView>
-                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" showsHorizontalScrollIndicator="NO" text="Être, ou ne pas être : telle est la question." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="xnY-6R-arv">
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" showsHorizontalScrollIndicator="NO" keyboardDismissMode="onDrag" text="Être, ou ne pas être : telle est la question." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="xnY-6R-arv">
                                                         <rect key="frame" x="0.0" y="31" width="162" height="65"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                         <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                                         <connections>
                                                             <outlet property="delegate" destination="ZN2-ey-Vs6" id="cZw-Mx-MbZ"/>
                                                         </connections>

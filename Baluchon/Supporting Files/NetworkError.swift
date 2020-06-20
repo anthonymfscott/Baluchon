@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum NetworkError: Error {
+enum NetworkError: Error, Equatable {
     case requestError(description: String)
     case invalidResponse
     case invalidStatusCode(statusCode: Int)

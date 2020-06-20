@@ -15,14 +15,19 @@ class TranslationService {
     private let baseUrl = "https://translation.googleapis.com/language/translate/v2"
     private let apiKey = valueForAPIKey(named: "API_GoogleTranslation")
 
+    private var session = URLSession(configuration: .default)
     private var task: URLSessionTask?
+
+    init(session: URLSession) {
+        self.session = session
+    }
 
     func getTranslation(of inputText: String, to targetLanguage: String, completed: @escaping (Result<Translation, NetworkError>) -> Void) {
         let request = createTranslationRequest(inputText: inputText, targetLanguage: targetLanguage)
 
         task?.cancel()
         
-        task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+        task = session.dataTask(with: request) { (data, response, error) in
             DispatchQueue.main.async {
                 if let error = error {
                     completed(.failure(.requestError(description: error.localizedDescription)))
