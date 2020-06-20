@@ -14,13 +14,13 @@ class TranslationView: BannerView {
     @IBOutlet var input: UITextView?
     @IBOutlet private var translation: UILabel?
 
-    var languageIcon: UIImage? {
+    var languageIcon: UIImage {
         didSet {
             languageImage.image = languageIcon
         }
     }
 
-    var languageNameText: String? {
+    var languageNameText: String {
         didSet {
             languageName.text = languageNameText
         }

@@ -19,8 +19,8 @@ class ExchangeViewController: UIViewController {
         exchangeView1.currencyNameText = "USD"
         exchangeView2.currencyNameText = "EUR"
 
-        exchangeView1.currencyIcon = UIImage(named: "dollar")
-        exchangeView2.currencyIcon = UIImage(named: "euro")
+        exchangeView1.currencyIcon = UIImage(named: "dollar")!
+        exchangeView2.currencyIcon = UIImage(named: "euro")!
 
         exchangeView1.inputValueText = "1"
         exchangeView2.convertedValueText = ""
@@ -57,18 +57,20 @@ class ExchangeViewController: UIViewController {
     }
 
     private func updateUI(with exchange: Exchange) {
-        if let result = calculateEuroValue(with: exchange) {
+        if let result = convertValue(with: exchange) {
             exchangeView2.convertedValueText = "\(result)"
         }
     }
 
-    private func calculateEuroValue(with exchange: Exchange) -> Float? {
+    private func convertValue(with exchange: Exchange) -> Float? {
         var result: Float?
 
-        if let value = exchangeView1.inputValue?.text {
-            if let floatValue = Float(value) {
-                result = floatValue / exchange.rates["USD"]!
-            }
+        guard let value = exchangeView1.inputValueText, let floatValue = Float(value) else { return nil }
+
+        if exchangeView1.currencyNameText == "USD" {
+            result = floatValue / exchange.rates["USD"]!
+        } else {
+            result = floatValue * exchange.rates["USD"]!
         }
 
         return result?.roundedToSecondDecimal
@@ -82,6 +84,9 @@ class ExchangeViewController: UIViewController {
         let imageCopy = exchangeView1.currencyIcon
         exchangeView1.currencyIcon = exchangeView2.currencyIcon
         exchangeView2.currencyIcon = imageCopy
+
+        exchangeView1.inputValueText = "1"
+        exchangeView2.convertedValueText = ""
     }
 
     private func presentAlertController() {

@@ -14,13 +14,13 @@ class ExchangeView: BannerView {
     @IBOutlet var inputValue: UITextField?
     @IBOutlet private var convertedValue: UILabel?
 
-    var currencyIcon: UIImage? {
+    var currencyIcon: UIImage {
         didSet {
             currencyImage.image = currencyIcon
         }
     }
 
-    var currencyNameText: String? {
+    var currencyNameText: String {
         didSet {
             currencyName.text = currencyNameText
         }

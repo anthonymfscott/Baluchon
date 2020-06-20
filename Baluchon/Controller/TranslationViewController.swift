@@ -19,8 +19,8 @@ class TranslationViewController: UIViewController {
         translationView1.languageNameText = "FR"
         translationView2.languageNameText = "EN"
 
-        translationView1.languageIcon = UIImage(named: "france")
-        translationView2.languageIcon = UIImage(named: "uk")
+        translationView1.languageIcon = UIImage(named: "france")!
+        translationView2.languageIcon = UIImage(named: "uk")!
 
         translationView1.inputText = "Où se trouve la gare svp ?"
         translationView2.translatedText = nil
@@ -35,7 +35,7 @@ class TranslationViewController: UIViewController {
         toggleLoadingState(shown: true)
 
         if let input = translationView1.input?.text {
-             getTranslationData(input, to: "en")
+            getTranslationData(input, to: translationView2.languageNameText.lowercased())
         }
     }
 
@@ -70,6 +70,9 @@ class TranslationViewController: UIViewController {
         let imageCopy = translationView1.languageIcon
         translationView1.languageIcon = translationView2.languageIcon
         translationView2.languageIcon = imageCopy
+
+        translationView1.inputText = nil
+        translationView2.translatedText = nil
     }
 
     private func presentAlertController() {
