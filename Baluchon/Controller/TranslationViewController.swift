@@ -16,8 +16,12 @@ class TranslationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        translationView1.inputText = nil
+        translationView1.inputText = "Où se trouve la gare svp ?"
         translationView2.translatedText = nil
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) {
+            self.baluchonView.baluchonButton.pulsate()
+        }
     }
 
     @IBAction private func baluchonBlueTapped(_ sender: UIButton) {

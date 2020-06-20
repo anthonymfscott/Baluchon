@@ -16,8 +16,12 @@ class ExchangeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        exchangeView1.inputValueText = ""
+        exchangeView1.inputValueText = "1"
         exchangeView2.convertedValueText = ""
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) {
+            self.baluchonView.baluchonButton.pulsate()
+        }
     }
 
     @IBAction private func baluchonGreenTapped(_ sender: UIButton) {

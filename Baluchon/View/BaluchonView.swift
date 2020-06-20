@@ -9,7 +9,7 @@
 import UIKit
 
 class BaluchonView: UIView {
-    @IBOutlet private var baluchonButton: UIButton!
+    @IBOutlet var baluchonButton: UIButton!
     @IBOutlet private var activityIndicator: UIActivityIndicatorView!
     @IBOutlet private var baluchonStick: UIImageView!
 

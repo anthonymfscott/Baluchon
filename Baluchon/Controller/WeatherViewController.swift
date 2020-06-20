@@ -13,6 +13,8 @@ class WeatherViewController: UIViewController {
     @IBOutlet private var weatherView2: WeatherView!
     @IBOutlet private var baluchonView: BaluchonView!
 
+    private var baluchonShouldPulsate = true
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -23,6 +25,10 @@ class WeatherViewController: UIViewController {
         weatherView2.temperatureText = ""
         weatherView2.generalText = ""
         weatherView2.detailText = ""
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) {
+            self.baluchonView.baluchonButton.pulsate()
+        }
     }
 
     @IBAction private func baluchonRedTapped(_ sender: UIButton) {
