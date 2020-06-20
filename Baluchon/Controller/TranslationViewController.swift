@@ -25,7 +25,7 @@ class TranslationViewController: UIViewController {
         translationView1.inputText = "Où se trouve la gare svp ?"
         translationView2.translatedText = nil
 
-        DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
             self.baluchonView.baluchonButton.pulsate()
         }
     }

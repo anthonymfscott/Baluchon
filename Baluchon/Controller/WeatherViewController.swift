@@ -13,6 +13,8 @@ class WeatherViewController: UIViewController {
     @IBOutlet private var weatherView2: WeatherView!
     @IBOutlet private var baluchonView: BaluchonView!
 
+    @IBOutlet var latestUpdateLabel: UILabel!
+
     private var baluchonShouldPulsate = true
 
     override func viewDidLoad() {
@@ -26,7 +28,9 @@ class WeatherViewController: UIViewController {
         weatherView2.generalText = ""
         weatherView2.detailText = ""
 
-        DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) {
+        latestUpdateLabel.text = ""
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
             self.baluchonView.baluchonButton.pulsate()
         }
     }
@@ -34,6 +38,8 @@ class WeatherViewController: UIViewController {
     @IBAction private func baluchonRedTapped(_ sender: UIButton) {
         toggleLoadingState(shown: true)
         getWeatherData()
+        let hour = String(Calendar.current.component(.hour, from: Date())) + ":" + String(Calendar.current.component(.minute, from: Date()))
+        latestUpdateLabel.text = "Latest update: \(hour)"
     }
 
     private func getWeatherData() {

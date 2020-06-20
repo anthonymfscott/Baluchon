@@ -25,7 +25,7 @@ class ExchangeViewController: UIViewController {
         exchangeView1.inputValueText = "1"
         exchangeView2.convertedValueText = ""
 
-        DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
             self.baluchonView.baluchonButton.pulsate()
         }
     }
@@ -65,7 +65,7 @@ class ExchangeViewController: UIViewController {
     private func convertValue(with exchange: Exchange) -> Float? {
         var result: Float?
 
-        guard let value = exchangeView1.inputValueText, let floatValue = Float(value) else { return nil }
+        guard let value = exchangeView1.inputValue?.text, let floatValue = Float(value) else { return nil }
 
         if exchangeView1.currencyNameText == "USD" {
             result = floatValue / exchange.rates["USD"]!

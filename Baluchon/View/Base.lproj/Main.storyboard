@@ -195,12 +195,20 @@
                                     <outlet property="temperature" destination="tcw-Yr-TwU" id="x0u-Sq-bsY"/>
                                 </connections>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Latest update: 10:47" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NAd-j6-OnG">
+                                <rect key="frame" x="197" y="334.5" width="115" height="14.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
+                                <color key="textColor" red="0.99767714740000002" green="0.24209004640000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.85782104729999997" green="0.73457247020000005" blue="0.63136053089999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="E9i-PJ-faM" firstAttribute="leading" secondItem="1G3-BD-JXt" secondAttribute="leading" id="4ZQ-uV-qfh"/>
                             <constraint firstItem="E9i-PJ-faM" firstAttribute="centerY" secondItem="1G3-BD-JXt" secondAttribute="centerY" id="52x-M9-5Tb"/>
+                            <constraint firstItem="1G3-BD-JXt" firstAttribute="trailing" secondItem="NAd-j6-OnG" secondAttribute="trailing" constant="8" id="9m6-UV-DTS"/>
                             <constraint firstItem="1G3-BD-JXt" firstAttribute="bottom" secondItem="34x-Si-chx" secondAttribute="bottom" constant="32" id="GoV-c4-dF8"/>
+                            <constraint firstItem="34x-Si-chx" firstAttribute="top" secondItem="NAd-j6-OnG" secondAttribute="bottom" constant="8" id="KRK-Dn-lb5"/>
                             <constraint firstItem="1G3-BD-JXt" firstAttribute="trailing" secondItem="34x-Si-chx" secondAttribute="trailing" constant="-32" id="LQX-hD-KyN"/>
                             <constraint firstItem="1G3-BD-JXt" firstAttribute="trailing" secondItem="E9i-PJ-faM" secondAttribute="trailing" id="MDI-Uu-BFm"/>
                             <constraint firstItem="34x-Si-chx" firstAttribute="leading" secondItem="1G3-BD-JXt" secondAttribute="leading" constant="56" id="OQT-Xt-FJN"/>
@@ -209,6 +217,7 @@
                             <constraint firstItem="E9i-PJ-faM" firstAttribute="top" secondItem="wc2-eo-e6u" secondAttribute="bottom" constant="16" id="aQR-93-p0a"/>
                             <constraint firstItem="wc2-eo-e6u" firstAttribute="leading" secondItem="1G3-BD-JXt" secondAttribute="leading" constant="-32" id="qXT-Ta-rGT"/>
                             <constraint firstItem="1G3-BD-JXt" firstAttribute="trailing" secondItem="wc2-eo-e6u" secondAttribute="trailing" constant="56" id="rfJ-Bb-pUp"/>
+                            <constraint firstItem="NAd-j6-OnG" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="1G3-BD-JXt" secondAttribute="leading" symbolic="YES" id="wOk-QN-jcl"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="1G3-BD-JXt"/>
                     </view>
@@ -217,6 +226,7 @@
                     </tabBarItem>
                     <connections>
                         <outlet property="baluchonView" destination="E9i-PJ-faM" id="mZR-sf-hA0"/>
+                        <outlet property="latestUpdateLabel" destination="NAd-j6-OnG" id="OOY-1s-1Bs"/>
                         <outlet property="weatherView1" destination="wc2-eo-e6u" id="99I-6b-fds"/>
                         <outlet property="weatherView2" destination="34x-Si-chx" id="lnZ-ev-EUk"/>
                     </connections>
