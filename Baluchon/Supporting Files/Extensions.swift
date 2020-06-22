@@ -60,3 +60,10 @@ extension UIImageView {
         downloaded(from: url, contentMode: mode)
     }
 }
+
+extension Float {
+    var intString: String {
+        let resultParts = String(self).split(separator: ".")
+        return String(resultParts[0])
+    }
+}

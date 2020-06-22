@@ -41,8 +41,7 @@ class WeatherViewController: UIViewController {
     @IBAction private func baluchonRedTapped(_ sender: UIButton) {
         toggleLoadingState(shown: true)
         getWeatherData()
-        let hour = String(Calendar.current.component(.hour, from: Date())) + ":" + String(Calendar.current.component(.minute, from: Date()))
-        latestUpdateLabel.text = "Last updated: \(hour)"
+        showHour()
     }
 
     private func getWeatherData() {
@@ -72,7 +71,7 @@ class WeatherViewController: UIViewController {
     }
 
     private func update(_ weatherView: WeatherView, with weatherData: Weather?) {
-        if let temperature = weatherData?.temperature?.roundedToFirstDecimal {
+        if let temperature = weatherData?.temperature?.rounded().intString {
             weatherView.temperatureText = "\(temperature)°C"
         }
         weatherView.generalText = weatherData?.general
@@ -80,6 +79,29 @@ class WeatherViewController: UIViewController {
         if let icon = weatherData?.icon {
             weatherView.weatherImage.downloaded(from: "https://openweathermap.org/img/wn/\(icon)@2x.png")
         }
+    }
+
+    private func showHour() {
+        let hourString: String
+        let minuteString: String
+
+        let hour = Calendar.current.component(.hour, from: Date())
+
+        if hour < 10 {
+            hourString = "0\(hour)"
+        } else {
+            hourString = "\(hour)"
+        }
+
+        let minute = Calendar.current.component(.minute, from: Date())
+
+        if minute < 10 {
+            minuteString = "0\(minute)"
+        } else {
+            minuteString = "\(minute)"
+        }
+
+        latestUpdateLabel.text = "Last updated: \(hourString):\(minuteString)"
     }
 
     private func presentAlertController() {
