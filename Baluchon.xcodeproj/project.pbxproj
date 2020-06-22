@@ -178,10 +178,10 @@
 			isa = PBXGroup;
 			children = (
 				AD3F7C07248EB2A100ED0DBA /* Weather.swift */,
-				AD3F7C05248EB25200ED0DBA /* WeatherService.swift */,
 				AD3F7C0B248ED8C500ED0DBA /* Translation.swift */,
-				AD3F7C09248EB71200ED0DBA /* TranslationService.swift */,
 				AD3F7C0F248ED9A600ED0DBA /* Exchange.swift */,
+				AD3F7C05248EB25200ED0DBA /* WeatherService.swift */,
+				AD3F7C09248EB71200ED0DBA /* TranslationService.swift */,
 				AD3F7C0D248ED99600ED0DBA /* ExchangeService.swift */,
 			);
 			path = Model;
@@ -534,6 +534,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JVSADVSJ8H;
 				INFOPLIST_FILE = BaluchonTests/Info.plist;
@@ -556,6 +557,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JVSADVSJ8H;
 				INFOPLIST_FILE = BaluchonTests/Info.plist;

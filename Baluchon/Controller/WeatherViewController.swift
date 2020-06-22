@@ -28,6 +28,9 @@ class WeatherViewController: UIViewController {
         weatherView2.generalText = ""
         weatherView2.detailText = ""
 
+        weatherView1.weatherImage.image = nil
+        weatherView2.weatherImage.image = nil
+
         latestUpdateLabel.text = ""
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
@@ -39,7 +42,7 @@ class WeatherViewController: UIViewController {
         toggleLoadingState(shown: true)
         getWeatherData()
         let hour = String(Calendar.current.component(.hour, from: Date())) + ":" + String(Calendar.current.component(.minute, from: Date()))
-        latestUpdateLabel.text = "Latest update: \(hour)"
+        latestUpdateLabel.text = "Last updated: \(hour)"
     }
 
     private func getWeatherData() {
@@ -74,6 +77,9 @@ class WeatherViewController: UIViewController {
         }
         weatherView.generalText = weatherData?.general
         weatherView.detailText = weatherData?.detail
+        if let icon = weatherData?.icon {
+            weatherView.weatherImage.downloaded(from: "https://openweathermap.org/img/wn/\(icon)@2x.png")
+        }
     }
 
     private func presentAlertController() {

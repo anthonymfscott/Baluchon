@@ -13,6 +13,7 @@ struct Weather: Decodable {
     var temperature: Float?
     var general: String?
     var detail: String?
+    var icon: String?
 
     private var weather: [WeatherText]?
 
@@ -27,6 +28,7 @@ struct Weather: Decodable {
     struct WeatherText: Decodable {
         var main: String
         var description: String
+        var icon: String
     }
 
     init(from decoder: Decoder) throws {
@@ -36,6 +38,7 @@ struct Weather: Decodable {
         weather = try container.decode([WeatherText].self, forKey: .weather)
         general = weather?.first?.main
         detail = weather?.first?.description
+        icon = weather?.first?.icon
 
         let main = try container.nestedContainer(keyedBy: MainCodingKeys.self, forKey: .main)
         temperature = try main.decode(Float.self, forKey: .temperature)

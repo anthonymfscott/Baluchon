@@ -59,13 +59,15 @@ class ExchangeViewController: UIViewController {
     private func updateUI(with exchange: Exchange) {
         if let result = convertValue(with: exchange) {
             exchangeView2.convertedValueText = "\(result)"
+        } else {
+            exchangeView2.convertedValueText = ""
         }
     }
 
     private func convertValue(with exchange: Exchange) -> Float? {
         var result: Float?
 
-        guard let value = exchangeView1.inputValue?.text, let floatValue = Float(value) else { return nil }
+        guard let value = exchangeView1.inputValue?.text, let floatValue = Float(value), exchangeView1.inputValueText != "" else { return nil }
 
         if exchangeView1.currencyNameText == "USD" {
             result = floatValue / exchange.rates["USD"]!

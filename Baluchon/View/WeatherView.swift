@@ -14,6 +14,7 @@ class WeatherView: BannerView {
     @IBOutlet private var temperature: UILabel!
     @IBOutlet private var general: UILabel!
     @IBOutlet private var detail: UILabel!
+    @IBOutlet var weatherImage: UIImageView!
     
     var temperatureText: String? = "" {
         didSet {
