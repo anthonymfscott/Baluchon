@@ -15,8 +15,6 @@ class WeatherViewController: UIViewController {
 
     @IBOutlet var latestUpdateLabel: UILabel!
 
-    private var baluchonShouldPulsate = true
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -33,15 +31,13 @@ class WeatherViewController: UIViewController {
 
         latestUpdateLabel.text = ""
 
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
-            self.baluchonView.baluchonButton.pulsate()
-        }
+        baluchonView.shouldPulsate = true
     }
 
     @IBAction private func baluchonRedTapped(_ sender: UIButton) {
+        baluchonView.shouldPulsate = false
         toggleLoadingState(shown: true)
         getWeatherData()
-        showHour()
     }
 
     private func getWeatherData() {
@@ -68,10 +64,12 @@ class WeatherViewController: UIViewController {
 
         update(weatherView1, with: weatherData1)
         update(weatherView2, with: weatherData2)
+
+        showHour()
     }
 
     private func update(_ weatherView: WeatherView, with weatherData: Weather?) {
-        if let temperature = weatherData?.temperature?.rounded().intString {
+        if let temperature = weatherData?.temperature?.rounded().convertedToInt {
             weatherView.temperatureText = "\(temperature)°C"
         }
         weatherView.generalText = weatherData?.general
@@ -82,26 +80,24 @@ class WeatherViewController: UIViewController {
     }
 
     private func showHour() {
-        let hourString: String
-        let minuteString: String
+        var time = ""
 
         let hour = Calendar.current.component(.hour, from: Date())
-
-        if hour < 10 {
-            hourString = "0\(hour)"
-        } else {
-            hourString = "\(hour)"
-        }
-
         let minute = Calendar.current.component(.minute, from: Date())
 
-        if minute < 10 {
-            minuteString = "0\(minute)"
+        if hour < 10 {
+            time += "0\(hour)"
         } else {
-            minuteString = "\(minute)"
+            time += "\(hour)"
         }
 
-        latestUpdateLabel.text = "Last updated: \(hourString):\(minuteString)"
+        if minute < 10 {
+            time += ":0\(minute)"
+        } else {
+            time += ":\(minute)"
+        }
+
+        latestUpdateLabel.text = "Last updated: \(time)"
     }
 
     private func presentAlertController() {

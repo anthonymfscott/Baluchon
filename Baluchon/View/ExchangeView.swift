@@ -26,7 +26,6 @@ class ExchangeView: BannerView {
         }
     }
     
-
     var inputValueText: String? {
         didSet {
             inputValue?.text = inputValueText

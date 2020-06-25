@@ -25,12 +25,11 @@ class ExchangeViewController: UIViewController {
         exchangeView1.inputValueText = "1"
         exchangeView2.convertedValueText = ""
 
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
-            self.baluchonView.baluchonButton.pulsate()
-        }
+        baluchonView.shouldPulsate = true
     }
 
     @IBAction private func baluchonGreenTapped(_ sender: UIButton) {
+        baluchonView.shouldPulsate = false
         exchangeView1.inputValue?.resignFirstResponder()
         toggleLoadingState(shown: true)
 
@@ -89,6 +88,8 @@ class ExchangeViewController: UIViewController {
 
         exchangeView1.inputValueText = "1"
         exchangeView2.convertedValueText = ""
+
+        baluchonView.shouldPulsate = true
     }
 
     private func presentAlertController() {
@@ -101,5 +102,7 @@ class ExchangeViewController: UIViewController {
 extension ExchangeViewController {
     @IBAction private func dismissKeyboard(_ sender: UITapGestureRecognizer) {
         exchangeView1.inputValue?.resignFirstResponder()
+        exchangeView2.convertedValueText = ""
+        baluchonView.shouldPulsate = true
     }
 }

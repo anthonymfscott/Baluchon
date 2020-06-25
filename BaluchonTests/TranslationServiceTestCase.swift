@@ -87,15 +87,26 @@ class TranslationServiceTestCase: XCTestCase {
 
         let expectation = XCTestExpectation(description: "Wait for queue change.")
         translationService.getTranslation(of: "Bonjour", to: "en") { result in
-            switch result {
-            case .success(let translation):
-                XCTAssertNotNil(translation)
 
-                let translatedText = "To be, or not to be: that is the question."
-                XCTAssertEqual(translatedText, translation.translatedText)
-            case .failure(_):
+
+            guard case let .success(translation) = result else {
                 XCTFail()
+                return
             }
+
+            XCTAssertNotNil(translation)
+
+            let translatedText = "To be, or not to be: that is the question."
+            XCTAssertEqual(translatedText, translation.translatedText)
+
+//            case .success(let translation):
+//                XCTAssertNotNil(translation)
+//
+//                let translatedText = "To be, or not to be: that is the question."
+//                XCTAssertEqual(translatedText, translation.translatedText)
+//            case .failure(_):
+//                XCTFail()
+//            }
 
             expectation.fulfill()
         }

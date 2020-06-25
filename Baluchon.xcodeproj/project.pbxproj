@@ -140,11 +140,11 @@
 		ADAF7029248A9EF80058F1A7 /* Baluchon */ = {
 			isa = PBXGroup;
 			children = (
-				ADAF7038248A9EFA0058F1A7 /* Info.plist */,
 				ADAF7040248A9F240058F1A7 /* Model */,
 				ADAF703E248A9F100058F1A7 /* Controller */,
 				ADAF703F248A9F180058F1A7 /* View */,
 				ADAA9D51249D35AF00FEEBD3 /* Supporting Files */,
+				ADAF7038248A9EFA0058F1A7 /* Info.plist */,
 			);
 			path = Baluchon;
 			sourceTree = "<group>";
@@ -168,8 +168,8 @@
 				AD7FC2182497D88200F1549D /* WeatherView.swift */,
 				AD6AE9B0249A14E100FBBA20 /* TranslationView.swift */,
 				AD6AE9B6249A2A5600FBBA20 /* ExchangeView.swift */,
-				ADAF7033248A9EFA0058F1A7 /* Assets.xcassets */,
 				ADAF7035248A9EFA0058F1A7 /* LaunchScreen.storyboard */,
+				ADAF7033248A9EFA0058F1A7 /* Assets.xcassets */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -190,7 +190,6 @@
 		ADFF2507249E492A00A9CC33 /* BaluchonTests */ = {
 			isa = PBXGroup;
 			children = (
-				ADFF250A249E492A00A9CC33 /* Info.plist */,
 				ADFF2510249E49E500A9CC33 /* WeatherServiceTestCase.swift */,
 				AD9A6BB7249E54DC00EA83BF /* TranslationServiceTestCase.swift */,
 				AD9A6BB9249E54EC00EA83BF /* ExchangeServiceTestCase.swift */,
@@ -199,6 +198,7 @@
 				AD9A6BB1249E525700EA83BF /* Exchange.json */,
 				ADFF2514249E4AB800A9CC33 /* FakeResponseData.swift */,
 				AD9A6BBB249E579000EA83BF /* URLSessionFake.swift */,
+				ADFF250A249E492A00A9CC33 /* Info.plist */,
 			);
 			path = BaluchonTests;
 			sourceTree = "<group>";

@@ -25,12 +25,11 @@ class TranslationViewController: UIViewController {
         translationView1.inputText = "Où se trouve la gare svp ?"
         translationView2.translatedText = nil
 
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
-            self.baluchonView.baluchonButton.pulsate()
-        }
+        baluchonView.shouldPulsate = true
     }
 
     @IBAction private func baluchonBlueTapped(_ sender: UIButton) {
+        baluchonView.shouldPulsate = false
         translationView1.input?.resignFirstResponder()
         toggleLoadingState(shown: true)
 
@@ -85,6 +84,8 @@ class TranslationViewController: UIViewController {
 extension TranslationViewController: UITextViewDelegate {
     @IBAction private func dismissKeyboard(_ sender: UITapGestureRecognizer) {
         translationView1.input?.resignFirstResponder()
+        translationView2.translatedText = ""
+        baluchonView.shouldPulsate = true
     }
 
 //    func textViewShouldEndEditing(_ textView: UITextView) -> Bool {
@@ -95,6 +96,8 @@ extension TranslationViewController: UITextViewDelegate {
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         if (text == "\n") {
             translationView1.input?.resignFirstResponder()
+            translationView2.translatedText = ""
+            baluchonView.shouldPulsate = true
             return false
         }
         return true

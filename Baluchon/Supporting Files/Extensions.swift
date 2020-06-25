@@ -9,35 +9,20 @@
 import UIKit
 
 extension Float {
-    var roundedToFirstDecimal: Float {
-        return (self * 10).rounded() / 10
-    }
+//    var roundedToFirstDecimal: Float {
+//        return (self * 10).rounded() / 10
+//    }
 
     var roundedToSecondDecimal: Float {
         return (self * 100).rounded() / 100
     }
 }
 
-extension Collection {
-    subscript(safe index: Index) -> Iterator.Element? {
-        return indices.contains(index) ? self[index]: nil
-    }
-}
-
-extension UIButton {
-    func pulsate() {
-        let pulse = CASpringAnimation(keyPath: "transform.scale")
-        pulse.duration = 0.3
-        pulse.fromValue = 1.0
-        pulse.toValue = 0.95
-        pulse.autoreverses = true
-        pulse.repeatCount = 3
-        pulse.initialVelocity = 0.5
-        pulse.damping = 1.0
-
-        layer.add(pulse, forKey: nil)
-    }
-}
+//extension Collection {
+//    subscript(safe index: Index) -> Iterator.Element? {
+//        return indices.contains(index) ? self[index]: nil
+//    }
+//}
 
 extension UIImageView {
     func downloaded(from url: URL, contentMode mode: UIView.ContentMode = .scaleAspectFit) {
@@ -62,8 +47,7 @@ extension UIImageView {
 }
 
 extension Float {
-    var intString: String {
-        let resultParts = String(self).split(separator: ".")
-        return String(resultParts[0])
+    var convertedToInt: Int {
+        return Int(self)
     }
 }
