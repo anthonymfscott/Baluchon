@@ -1,5 +1,5 @@
 //
-//  ExchangeService.swift
+//  WeatherService.swift
 //  Baluchon
 //
 //  Created by anthonymfscott on 08/06/2020.
@@ -8,12 +8,12 @@
 
 import Foundation
 
-class ExchangeService {
-    static let shared = ExchangeService()
+class WeatherService {
+    static let shared = WeatherService()
     private init() {}
 
-    private let baseUrl = "http://data.fixer.io/api/"
-    private let apiKey = valueForAPIKey(named: "API_Fixer")
+    private let baseUrl = "https://api.openweathermap.org/data/2.5/"
+    private let apiKey = valueForAPIKey(named: "API_OpenWeathermap")
 
     private var session = URLSession(configuration: .default)
     private var task: URLSessionTask?
@@ -22,11 +22,12 @@ class ExchangeService {
         self.session = session
     }
 
-    func getExchange(completed: @escaping (Result<Exchange, NetworkError>) -> Void) {
-        let url = URL(string: baseUrl + "latest?access_key=\(apiKey)")!
+    func getWeather(completed: @escaping (Result<WeatherResponse, NetworkError>) -> Void) {
+        // guard let apiKey, url
+        guard let url = URL(string: baseUrl + "group?id=2800866,5128581&units=metric&appid=\(apiKey)") else { return }
 
         task?.cancel()
-        
+
         task = session.dataTask(with: url) { (data, response, error) in
             DispatchQueue.main.async {
                 if let error = error {
@@ -46,12 +47,11 @@ class ExchangeService {
 
                 guard let data = data else {
                     completed(.failure(.invalidData))
-                    print("Invalid data.")
                     return
                 }
 
                 do {
-                    let decodedData = try JSONDecoder().decode(Exchange.self, from: data)
+                    let decodedData = try JSONDecoder().decode(WeatherResponse.self, from: data)
                     completed(.success(decodedData))
                 } catch let error {
                     completed(.failure(.decodingError(description: error.localizedDescription)))

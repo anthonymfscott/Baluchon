@@ -10,20 +10,21 @@ import Foundation
 
 class TranslationService {
     static let shared = TranslationService()
-    private init() {}
 
-    private let baseUrl = "https://translation.googleapis.com/language/translate/v2"
+    private let baseUrl: String
     private let apiKey = valueForAPIKey(named: "API_GoogleTranslation")
 
-    private var session = URLSession(configuration: .default)
+    private let session: URLSession
     private var task: URLSessionTask?
 
-    init(session: URLSession) {
+    init(session: URLSession = URLSession(configuration: .default), baseUrl: String = "https://translation.googleapis.com/language/translate/v2") {
         self.session = session
+        self.baseUrl = baseUrl
     }
 
     func getTranslation(of inputText: String, to targetLanguage: String, completed: @escaping (Result<Translation, NetworkError>) -> Void) {
-        let request = createTranslationRequest(inputText: inputText, targetLanguage: targetLanguage)
+        guard let request = createTranslationRequest(inputText: inputText, targetLanguage: targetLanguage) else { return }
+        // ajouter completion error=invalidRequest
 
         task?.cancel()
         
@@ -61,8 +62,10 @@ class TranslationService {
         task?.resume()
     }
 
-    private func createTranslationRequest(inputText: String, targetLanguage: String) -> URLRequest {
-        var request = URLRequest(url: URL(string: baseUrl)!)
+    private func createTranslationRequest(inputText: String, targetLanguage: String) -> URLRequest? {
+        guard let url = URL(string: baseUrl) else { return nil }
+
+        var request = URLRequest(url: url)
         request.httpMethod = "POST"
 
         let body = "q=\(inputText)&target=\(targetLanguage)&format=text&key=\(apiKey)"

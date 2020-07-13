@@ -16,6 +16,10 @@ extension Float {
     var roundedToSecondDecimal: Float {
         return (self * 100).rounded() / 100
     }
+
+    var convertedToInt: Int {
+        return Int(self)
+    }
 }
 
 //extension Collection {
@@ -43,11 +47,5 @@ extension UIImageView {
     func downloaded(from link: String, contentMode mode: UIView.ContentMode = .scaleAspectFit) {
         guard let url = URL(string: link) else { return }
         downloaded(from: url, contentMode: mode)
-    }
-}
-
-extension Float {
-    var convertedToInt: Int {
-        return Int(self)
     }
 }
