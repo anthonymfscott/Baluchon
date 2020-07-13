@@ -3,10 +3,10 @@
 <plist version="1.0">
 <dict>
 	<key>API_OpenWeathermap</key>
-	<string>Please add here a valid API key.</string>
+	<string>10f66a10b9cad69c5478404e51823159</string>
 	<key>API_GoogleTranslation</key>
-	<string>Please add here a valid API key.</string>
+	<string>AIzaSyB3LTypGV_b_4r0dmP_PQuMCDQRFH3mqV0</string>
 	<key>API_Fixer</key>
-	<string>Please add here a valid API key.</string>
+	<string>5d7d6c079441b3412bb1c51f01f231fc</string>
 </dict>
 </plist>
