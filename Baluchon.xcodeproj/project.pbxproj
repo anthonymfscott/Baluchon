@@ -23,6 +23,7 @@
 		AD7FC21524979AD600F1549D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7FC21424979AD600F1549D /* Extensions.swift */; };
 		AD7FC2192497D88200F1549D /* WeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7FC2182497D88200F1549D /* WeatherView.swift */; };
 		AD8EA07724BC71950005994F /* ApiKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = AD8EA07624BC71950005994F /* ApiKeys.plist */; };
+		AD8EA07924BC731B0005994F /* ASApiKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = AD8EA07824BC731B0005994F /* ASApiKeys.plist */; };
 		AD9A6BB0249E524D00EA83BF /* Translation.json in Resources */ = {isa = PBXBuildFile; fileRef = AD9A6BAF249E524D00EA83BF /* Translation.json */; };
 		AD9A6BB2249E525700EA83BF /* Exchange.json in Resources */ = {isa = PBXBuildFile; fileRef = AD9A6BB1249E525700EA83BF /* Exchange.json */; };
 		AD9A6BB8249E54DC00EA83BF /* TranslationServiceTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9A6BB7249E54DC00EA83BF /* TranslationServiceTestCase.swift */; };
@@ -68,6 +69,7 @@
 		AD7FC21424979AD600F1549D /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		AD7FC2182497D88200F1549D /* WeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherView.swift; sourceTree = "<group>"; };
 		AD8EA07624BC71950005994F /* ApiKeys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ApiKeys.plist; sourceTree = "<group>"; };
+		AD8EA07824BC731B0005994F /* ASApiKeys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ASApiKeys.plist; sourceTree = "<group>"; };
 		AD9A6BAF249E524D00EA83BF /* Translation.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Translation.json; sourceTree = "<group>"; };
 		AD9A6BB1249E525700EA83BF /* Exchange.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Exchange.json; sourceTree = "<group>"; };
 		AD9A6BB7249E54DC00EA83BF /* TranslationServiceTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationServiceTestCase.swift; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 				ADCFFD6D24B725BA00E0FBC4 /* Constants.swift */,
 				AD8EA07624BC71950005994F /* ApiKeys.plist */,
 				ADCFFD6B24B7259900E0FBC4 /* ApiKeys.swift */,
+				AD8EA07824BC731B0005994F /* ASApiKeys.plist */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -314,6 +317,7 @@
 			files = (
 				ADAF7037248A9EFA0058F1A7 /* LaunchScreen.storyboard in Resources */,
 				AD8EA07724BC71950005994F /* ApiKeys.plist in Resources */,
+				AD8EA07924BC731B0005994F /* ASApiKeys.plist in Resources */,
 				ADAF7034248A9EFA0058F1A7 /* Assets.xcassets in Resources */,
 				ADAF7032248A9EF80058F1A7 /* Main.storyboard in Resources */,
 			);
