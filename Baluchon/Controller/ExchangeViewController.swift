@@ -19,8 +19,10 @@ class ExchangeViewController: UIViewController {
         exchangeView1.currencyNameText = "USD"
         exchangeView2.currencyNameText = "EUR"
 
-        exchangeView1.currencyIcon = UIImage(named: "dollar")!
-        exchangeView2.currencyIcon = UIImage(named: "euro")!
+        if let dollarImage = UIImage(named: "dollar"), let euroImage = UIImage(named: "euro") {
+            exchangeView1.currencyIcon = dollarImage
+            exchangeView2.currencyIcon = euroImage
+        }
 
         exchangeView1.inputValueText = "1"
         exchangeView2.convertedValueText = ""
@@ -89,7 +91,9 @@ class ExchangeViewController: UIViewController {
         exchangeView1.inputValueText = "1"
         exchangeView2.convertedValueText = ""
 
-        baluchonView.shouldPulsate = true
+        if !baluchonView.shouldPulsate {
+            baluchonView.shouldPulsate = true
+        }
     }
 
     private func presentAlertController() {
@@ -103,6 +107,11 @@ extension ExchangeViewController {
     @IBAction private func dismissKeyboard(_ sender: UITapGestureRecognizer) {
         exchangeView1.inputValue?.resignFirstResponder()
         exchangeView2.convertedValueText = ""
-        baluchonView.shouldPulsate = true
+
+        if exchangeView1.inputValue?.text == "" {
+            baluchonView.shouldPulsate = false
+        } else if !baluchonView.shouldPulsate {
+            baluchonView.shouldPulsate = true
+        }
     }
 }

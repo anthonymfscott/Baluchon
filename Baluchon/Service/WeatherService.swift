@@ -12,9 +12,6 @@ class WeatherService {
     static let shared = WeatherService()
     private init() {}
 
-    private let baseUrl = "https://api.openweathermap.org/data/2.5/"
-    private let apiKey = valueForAPIKey(named: "API_OpenWeathermap")
-
     private var session = URLSession(configuration: .default)
     private var task: URLSessionTask?
 
@@ -24,7 +21,7 @@ class WeatherService {
 
     func getWeather(completed: @escaping (Result<WeatherResponse, NetworkError>) -> Void) {
         // guard let apiKey, url
-        guard let url = URL(string: baseUrl + "group?id=2800866,5128581&units=metric&appid=\(apiKey)") else { return }
+        guard let url = URL(string: Network.Weather.baseUrl + Network.Weather.parameters) else { return }
 
         task?.cancel()
 

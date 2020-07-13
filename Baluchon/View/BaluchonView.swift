@@ -13,7 +13,7 @@ class BaluchonView: UIView {
     @IBOutlet private var activityIndicator: UIActivityIndicatorView!
     @IBOutlet private var baluchonStick: UIImageView!
 
-    var timer: Timer?
+    private var timer: Timer?
 
     var shouldPulsate = false {
         didSet {
@@ -29,9 +29,11 @@ class BaluchonView: UIView {
     }
 
     private func startAnimation() {
-        timer = Timer.scheduledTimer(withTimeInterval: 2, repeats: true, block: { timer in
-            self.pulsate()
-        })
+        guard timer == nil else { return }
+
+        timer = Timer.scheduledTimer(withTimeInterval: 2, repeats: true) { [weak self] timer in
+            self?.pulsate()
+        }
     }
 
     private func stopAnimation() {

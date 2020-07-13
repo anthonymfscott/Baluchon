@@ -19,7 +19,6 @@ struct Translation: Decodable {
     let data: Data
 }
 
-
 //struct Translation: Decodable {
 //    let data: Data
 //}

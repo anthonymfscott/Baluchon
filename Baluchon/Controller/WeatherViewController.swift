@@ -41,15 +41,17 @@ class WeatherViewController: UIViewController {
     }
 
     private func getWeatherData() {
-        WeatherService.shared.getWeather() { result in
-            self.toggleLoadingState(shown: false)
+        WeatherService.shared.getWeather() { [weak self] result in
+            DispatchQueue.main.async {
+                self?.toggleLoadingState(shown: false)
 
-            switch result {
-            case .success(let weatherResponse):
-                self.updateUI(with: weatherResponse)
-            case .failure(let error):
-                self.presentAlertController()
-                print(error.localizedDescription)
+                switch result {
+                case .success(let weatherResponse):
+                    self?.updateUI(with: weatherResponse)
+                case .failure(let error):
+                    self?.presentAlertController()
+                    print(error.localizedDescription)
+                }
             }
         }
     }
@@ -80,28 +82,33 @@ class WeatherViewController: UIViewController {
     }
 
     private func showHour() {
-        var time = ""
 
-        let hour = Calendar.current.component(.hour, from: Date())
-        let minute = Calendar.current.component(.minute, from: Date())
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeStyle = .short
+        dateFormatter.dateStyle = .none
+        //dateFormatter.timeZone = absolute ? TimeZone.GMT : NSTimeZone.default
 
-        if hour < 10 {
-            time += "0\(hour)"
-        } else {
-            time += "\(hour)"
-        }
+//
+//        let hour = Calendar.current.component(.hour, from: Date())
+//        let minute = Calendar.current.component(.minute, from: Date())
+//
+//        if hour < 10 {
+//            time += "0\(hour)"
+//        } else {
+//            time += "\(hour)"
+//        }
+//
+//        if minute < 10 {
+//            time += ":0\(minute)"
+//        } else {
+//            time += ":\(minute)"
+//        }
 
-        if minute < 10 {
-            time += ":0\(minute)"
-        } else {
-            time += ":\(minute)"
-        }
-
-        latestUpdateLabel.text = "Last updated: \(time)"
+        latestUpdateLabel.text = "Last updated: \(dateFormatter.string(from: Date()))"
     }
 
     private func presentAlertController() {
-        let ac = UIAlertController(title: "Network error", message: "Please check your Internet connection or try again later.", preferredStyle: .alert)
+        let ac = UIAlertController(title: Strings.errorAlertTitle, message: "Please check your Internet connection or try again later.", preferredStyle: .alert)
         ac.addAction(UIAlertAction(title: "OK", style: .cancel))
         present(ac, animated: true)
     }

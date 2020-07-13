@@ -19,8 +19,12 @@ class TranslationViewController: UIViewController {
         translationView1.languageNameText = "FR"
         translationView2.languageNameText = "EN"
 
-        translationView1.languageIcon = UIImage(named: "france")!
-        translationView2.languageIcon = UIImage(named: "uk")!
+        if let franceImage = UIImage(named: "france"), let ukImage = UIImage(named: "uk") {
+            translationView1.languageIcon = franceImage
+            translationView2.languageIcon = ukImage
+        }
+
+        translationView1.languageIcon = Image.frenchFlag
 
         translationView1.inputText = "Où se trouve la gare svp ?"
         translationView2.translatedText = nil
@@ -83,9 +87,16 @@ class TranslationViewController: UIViewController {
 
 extension TranslationViewController: UITextViewDelegate {
     @IBAction private func dismissKeyboard(_ sender: UITapGestureRecognizer) {
-        translationView1.input?.resignFirstResponder()
-        translationView2.translatedText = ""
-        baluchonView.shouldPulsate = true
+        if translationView1.input?.isFirstResponder ?? false {
+            translationView1.input?.resignFirstResponder()
+            translationView2.translatedText = ""
+
+            if translationView1.inputText?.isEmpty == true {
+                baluchonView.shouldPulsate = false
+            } else if !baluchonView.shouldPulsate {
+                baluchonView.shouldPulsate = true
+            }
+        }
     }
 
 //    func textViewShouldEndEditing(_ textView: UITextView) -> Bool {
@@ -94,10 +105,16 @@ extension TranslationViewController: UITextViewDelegate {
 //    }
 
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        if (text == "\n") {
+        if translationView1.input!.isFirstResponder && text == "\n" {
             translationView1.input?.resignFirstResponder()
             translationView2.translatedText = ""
-            baluchonView.shouldPulsate = true
+
+            if translationView1.input?.text == "" {
+                baluchonView.shouldPulsate = false
+            } else if !baluchonView.shouldPulsate {
+                baluchonView.shouldPulsate = true
+            }
+
             return false
         }
         return true
