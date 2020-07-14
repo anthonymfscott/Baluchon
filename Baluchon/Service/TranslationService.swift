@@ -12,12 +12,11 @@ class TranslationService {
     static let shared = TranslationService()
 
     private let baseUrl: String
-    private let apiKey = valueForAPIKey(named: "API_GoogleTranslation")
 
     private let session: URLSession
     private var task: URLSessionTask?
 
-    init(session: URLSession = URLSession(configuration: .default), baseUrl: String = "https://translation.googleapis.com/language/translate/v2") {
+    init(session: URLSession = URLSession(configuration: .default), baseUrl: String = Network.Translation.baseUrl) {
         self.session = session
         self.baseUrl = baseUrl
     }
@@ -63,12 +62,12 @@ class TranslationService {
     }
 
     private func createTranslationRequest(inputText: String, targetLanguage: String) -> URLRequest? {
-        guard let url = URL(string: baseUrl) else { return nil }
+        guard let url = URL(string: Network.Translation.baseUrl) else { return nil }
 
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
 
-        let body = "q=\(inputText)&target=\(targetLanguage)&format=text&key=\(apiKey)"
+        let body = "q=\(inputText)&target=\(targetLanguage)&format=text&key=\(Network.Translation.apiKey)"
         request.httpBody = body.data(using: .utf8)
 
         return request

@@ -16,15 +16,13 @@ class ExchangeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        exchangeView1.currencyNameText = "USD"
-        exchangeView2.currencyNameText = "EUR"
+        exchangeView1.currencyNameText = Constants.inputCurrency
+        exchangeView2.currencyNameText = Constants.targetCurrency
 
-        if let dollarImage = UIImage(named: "dollar"), let euroImage = UIImage(named: "euro") {
-            exchangeView1.currencyIcon = dollarImage
-            exchangeView2.currencyIcon = euroImage
-        }
+        exchangeView1.currencyIcon = Images.dollarBadge
+        exchangeView2.currencyIcon = Images.euroBadge
 
-        exchangeView1.inputValueText = "1"
+        exchangeView1.inputValueText = Constants.inputCurrencyValue
         exchangeView2.convertedValueText = ""
 
         baluchonView.shouldPulsate = true
@@ -68,12 +66,14 @@ class ExchangeViewController: UIViewController {
     private func convertValue(with exchange: Exchange) -> Float? {
         var result: Float?
 
-        guard let value = exchangeView1.inputValue?.text, let floatValue = Float(value), exchangeView1.inputValueText != "" else { return nil }
+        guard let value = exchangeView1.inputValue?.text,
+            let floatValue = Float(value), exchangeView1.inputValueText != "",
+            let rate = exchange.rates[Constants.inputCurrency] else { return nil }
 
-        if exchangeView1.currencyNameText == "USD" {
-            result = floatValue / exchange.rates["USD"]!
+        if exchangeView1.currencyNameText == Constants.inputCurrency {
+            result = floatValue / rate
         } else {
-            result = floatValue * exchange.rates["USD"]!
+            result = floatValue * rate
         }
 
         return result?.roundedToSecondDecimal
@@ -88,18 +88,12 @@ class ExchangeViewController: UIViewController {
         exchangeView1.currencyIcon = exchangeView2.currencyIcon
         exchangeView2.currencyIcon = imageCopy
 
-        exchangeView1.inputValueText = "1"
+        exchangeView1.inputValueText = Constants.inputCurrencyValue
         exchangeView2.convertedValueText = ""
 
         if !baluchonView.shouldPulsate {
             baluchonView.shouldPulsate = true
         }
-    }
-
-    private func presentAlertController() {
-        let ac = UIAlertController(title: "Network error", message: "Please check your Internet connection or try again later.", preferredStyle: .alert)
-        ac.addAction(UIAlertAction(title: "OK", style: .cancel))
-        present(ac, animated: true)
     }
 }
 

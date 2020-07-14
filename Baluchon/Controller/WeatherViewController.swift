@@ -72,7 +72,7 @@ class WeatherViewController: UIViewController {
 
     private func update(_ weatherView: WeatherView, with weatherData: Weather?) {
         if let temperature = weatherData?.temperature?.rounded().convertedToInt {
-            weatherView.temperatureText = "\(temperature)°C"
+            weatherView.temperatureText = String(temperature) + Strings.celsiusLabel
         }
         weatherView.generalText = weatherData?.general
         weatherView.detailText = weatherData?.detail
@@ -86,30 +86,7 @@ class WeatherViewController: UIViewController {
         let dateFormatter = DateFormatter()
         dateFormatter.timeStyle = .short
         dateFormatter.dateStyle = .none
-        //dateFormatter.timeZone = absolute ? TimeZone.GMT : NSTimeZone.default
 
-//
-//        let hour = Calendar.current.component(.hour, from: Date())
-//        let minute = Calendar.current.component(.minute, from: Date())
-//
-//        if hour < 10 {
-//            time += "0\(hour)"
-//        } else {
-//            time += "\(hour)"
-//        }
-//
-//        if minute < 10 {
-//            time += ":0\(minute)"
-//        } else {
-//            time += ":\(minute)"
-//        }
-
-        latestUpdateLabel.text = "Last updated: \(dateFormatter.string(from: Date()))"
-    }
-
-    private func presentAlertController() {
-        let ac = UIAlertController(title: Strings.errorAlertTitle, message: "Please check your Internet connection or try again later.", preferredStyle: .alert)
-        ac.addAction(UIAlertAction(title: "OK", style: .cancel))
-        present(ac, animated: true)
+        latestUpdateLabel.text = Strings.updateLabel + dateFormatter.string(from: Date())
     }
 }

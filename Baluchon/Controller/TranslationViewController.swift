@@ -16,17 +16,13 @@ class TranslationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        translationView1.languageNameText = "FR"
-        translationView2.languageNameText = "EN"
+        translationView1.languageNameText = Constants.inputLanguage
+        translationView2.languageNameText = Constants.targetLanguage
 
-        if let franceImage = UIImage(named: "france"), let ukImage = UIImage(named: "uk") {
-            translationView1.languageIcon = franceImage
-            translationView2.languageIcon = ukImage
-        }
+        translationView1.languageIcon = Images.frenchFlag
+        translationView2.languageIcon = Images.englishFlag
 
-        translationView1.languageIcon = Image.frenchFlag
-
-        translationView1.inputText = "Où se trouve la gare svp ?"
+        translationView1.inputText = Constants.inputLanguageText
         translationView2.translatedText = nil
 
         baluchonView.shouldPulsate = true
@@ -76,12 +72,6 @@ class TranslationViewController: UIViewController {
 
         translationView1.inputText = nil
         translationView2.translatedText = nil
-    }
-
-    private func presentAlertController() {
-        let ac = UIAlertController(title: "Network error", message: "Please check your Internet connection or try again later.", preferredStyle: .alert)
-        ac.addAction(UIAlertAction(title: "OK", style: .cancel))
-        present(ac, animated: true)
     }
 }
 

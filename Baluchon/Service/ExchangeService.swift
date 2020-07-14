@@ -12,9 +12,6 @@ class ExchangeService {
     static let shared = ExchangeService()
     private init() {}
 
-    private let baseUrl = "http://data.fixer.io/api/"
-    private let apiKey = valueForAPIKey(named: "API_Fixer")
-
     private var session = URLSession(configuration: .default)
     private var task: URLSessionTask?
 
@@ -23,7 +20,7 @@ class ExchangeService {
     }
 
     func getExchange(completed: @escaping (Result<Exchange, NetworkError>) -> Void) {
-        guard let url = URL(string: baseUrl + "latest?access_key=\(apiKey)") else { return }
+        guard let url = URL(string: Network.Exchange.baseUrl + Network.Exchange.parameters) else { return }
 
         task?.cancel()
         
@@ -46,7 +43,6 @@ class ExchangeService {
 
                 guard let data = data else {
                     completed(.failure(.invalidData))
-                    print("Invalid data.")
                     return
                 }
 
