@@ -9,11 +9,11 @@
 import Foundation
 
 struct Weather: Decodable {
-    var city: String?
-    var temperature: Float?
-    var general: String?
-    var detail: String?
-    var icon: String?
+    let city: String?
+    let temperature: Float?
+    let general: String?
+    let detail: String?
+    let icon: String?
 
     private var weather: [WeatherText]?
 
@@ -23,12 +23,6 @@ struct Weather: Decodable {
 
     enum MainCodingKeys: String, CodingKey {
         case temperature = "temp"
-    }
-
-    struct WeatherText: Decodable {
-        var main: String
-        var description: String
-        var icon: String
     }
 
     init(from decoder: Decoder) throws {
@@ -51,4 +45,10 @@ struct WeatherResponse: Decodable {
     enum CodingKeys: String, CodingKey {
         case weatherArray = "list"
     }
+}
+
+struct WeatherText: Decodable {
+    var main: String
+    var description: String
+    var icon: String
 }

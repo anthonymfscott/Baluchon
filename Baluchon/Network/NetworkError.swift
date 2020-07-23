@@ -9,6 +9,7 @@
 import Foundation
 
 enum NetworkError: Error, Equatable {
+    case invalidRequest
     case requestError(description: String)
     case invalidResponse
     case invalidStatusCode(statusCode: Int)
@@ -19,6 +20,7 @@ enum NetworkError: Error, Equatable {
 extension NetworkError: LocalizedError {
     var errorDescription: String? {
         switch self {
+        case .invalidRequest: return "Invalid request"
         case .requestError(let description): return "Unable to complete the request: \(description)"
         case .invalidResponse: return "Invalid response"
         case .invalidStatusCode(let statusCode): return "Invalid status code: \(statusCode)"

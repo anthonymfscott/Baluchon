@@ -22,8 +22,10 @@ class TranslationService {
     }
 
     func getTranslation(of inputText: String, to targetLanguage: String, completed: @escaping (Result<Translation, NetworkError>) -> Void) {
-        guard let request = createTranslationRequest(inputText: inputText, targetLanguage: targetLanguage) else { return }
-        // ajouter completion error=invalidRequest
+        guard let request = createTranslationRequest(inputText: inputText, targetLanguage: targetLanguage) else {
+            completed(.failure(.invalidRequest))
+            return
+        }
 
         task?.cancel()
         
@@ -62,12 +64,12 @@ class TranslationService {
     }
 
     private func createTranslationRequest(inputText: String, targetLanguage: String) -> URLRequest? {
-        guard let url = URL(string: Network.Translation.baseUrl) else { return nil }
+        guard let url = URL(string: Network.Translation.baseUrl), let apiKey = Network.Translation.apiKey else { return nil }
 
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
 
-        let body = "q=\(inputText)&target=\(targetLanguage)&format=text&key=\(Network.Translation.apiKey)"
+        let body = "q=\(inputText)&target=\(targetLanguage)&format=text&key=" + apiKey
         request.httpBody = body.data(using: .utf8)
 
         return request

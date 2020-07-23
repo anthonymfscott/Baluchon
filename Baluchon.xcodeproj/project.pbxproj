@@ -35,7 +35,6 @@
 		AD9A6BBA249E54EC00EA83BF /* ExchangeServiceTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9A6BB9249E54EC00EA83BF /* ExchangeServiceTestCase.swift */; };
 		AD9A6BBC249E579000EA83BF /* URLSessionFake.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9A6BBB249E579000EA83BF /* URLSessionFake.swift */; };
 		ADAF702B248A9EF80058F1A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAF702A248A9EF80058F1A7 /* AppDelegate.swift */; };
-		ADAF702D248A9EF80058F1A7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAF702C248A9EF80058F1A7 /* SceneDelegate.swift */; };
 		ADAF702F248A9EF80058F1A7 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAF702E248A9EF80058F1A7 /* WeatherViewController.swift */; };
 		ADAF7032248A9EF80058F1A7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADAF7030248A9EF80058F1A7 /* Main.storyboard */; };
 		ADAF7034248A9EFA0058F1A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADAF7033248A9EFA0058F1A7 /* Assets.xcassets */; };
@@ -87,7 +86,6 @@
 		AD9A6BBB249E579000EA83BF /* URLSessionFake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionFake.swift; sourceTree = "<group>"; };
 		ADAF7027248A9EF80058F1A7 /* Baluchon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Baluchon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADAF702A248A9EF80058F1A7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		ADAF702C248A9EF80058F1A7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		ADAF702E248A9EF80058F1A7 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 		ADAF7031248A9EF80058F1A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		ADAF7033248A9EFA0058F1A7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -124,7 +122,9 @@
 			isa = PBXGroup;
 			children = (
 				ADAF702A248A9EF80058F1A7 /* AppDelegate.swift */,
-				ADAF702C248A9EF80058F1A7 /* SceneDelegate.swift */,
+				ADAF7038248A9EFA0058F1A7 /* Info.plist */,
+				ADAF7035248A9EFA0058F1A7 /* LaunchScreen.storyboard */,
+				ADAF7033248A9EFA0058F1A7 /* Assets.xcassets */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -151,13 +151,12 @@
 			isa = PBXGroup;
 			children = (
 				ADAF7040248A9F240058F1A7 /* Model */,
-				ADCFFD6824B7247500E0FBC4 /* Service */,
+				ADCFFD6824B7247500E0FBC4 /* Network */,
 				ADAF703E248A9F100058F1A7 /* Controller */,
 				ADAF703F248A9F180058F1A7 /* View */,
 				ADCFFD6A24B724D800E0FBC4 /* Extensions */,
 				ADCFFD6924B724A500E0FBC4 /* Utilities */,
 				ADAA9D51249D35AF00FEEBD3 /* Supporting Files */,
-				ADAF7038248A9EFA0058F1A7 /* Info.plist */,
 			);
 			path = Baluchon;
 			sourceTree = "<group>";
@@ -181,8 +180,6 @@
 				AD7FC2182497D88200F1549D /* WeatherView.swift */,
 				AD6AE9B0249A14E100FBBA20 /* TranslationView.swift */,
 				AD6AE9B6249A2A5600FBBA20 /* ExchangeView.swift */,
-				ADAF7035248A9EFA0058F1A7 /* LaunchScreen.storyboard */,
-				ADAF7033248A9EFA0058F1A7 /* Assets.xcassets */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -197,7 +194,7 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		ADCFFD6824B7247500E0FBC4 /* Service */ = {
+		ADCFFD6824B7247500E0FBC4 /* Network */ = {
 			isa = PBXGroup;
 			children = (
 				AD3F7C05248EB25200ED0DBA /* WeatherService.swift */,
@@ -205,7 +202,7 @@
 				AD3F7C0D248ED99600ED0DBA /* ExchangeService.swift */,
 				AD3A22F4249381D100032006 /* NetworkError.swift */,
 			);
-			path = Service;
+			path = Network;
 			sourceTree = "<group>";
 		};
 		ADCFFD6924B724A500E0FBC4 /* Utilities */ = {
@@ -372,7 +369,6 @@
 				AD3F7C10248ED9A600ED0DBA /* Exchange.swift in Sources */,
 				AD5810B924BDBC21000EC6D6 /* UIImageViewExtension.swift in Sources */,
 				AD7FC21524979AD600F1549D /* FloatExtension.swift in Sources */,
-				ADAF702D248A9EF80058F1A7 /* SceneDelegate.swift in Sources */,
 				AD3A22F5249381D100032006 /* NetworkError.swift in Sources */,
 				ADCFFD6E24B725BA00E0FBC4 /* Constants.swift in Sources */,
 				AD6AE9B3249A1DB100FBBA20 /* BannerView.swift in Sources */,
@@ -475,7 +471,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -529,7 +525,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -546,8 +542,8 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JVSADVSJ8H;
-				INFOPLIST_FILE = Baluchon/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				INFOPLIST_FILE = "Baluchon/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -567,8 +563,8 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JVSADVSJ8H;
-				INFOPLIST_FILE = Baluchon/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				INFOPLIST_FILE = "Baluchon/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

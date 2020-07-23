@@ -41,17 +41,15 @@ class WeatherViewController: UIViewController {
     }
 
     private func getWeatherData() {
-        WeatherService.shared.getWeather() { [weak self] result in
-            DispatchQueue.main.async {
-                self?.toggleLoadingState(shown: false)
+        WeatherService.shared.getWeather() { result in
+            self.toggleLoadingState(shown: false)
 
-                switch result {
-                case .success(let weatherResponse):
-                    self?.updateUI(with: weatherResponse)
-                case .failure(let error):
-                    self?.presentAlertController()
-                    print(error.localizedDescription)
-                }
+            switch result {
+            case .success(let weatherResponse):
+                self.updateUI(with: weatherResponse)
+            case .failure(let error):
+                self.presentAlertController()
+                print(error.localizedDescription)
             }
         }
     }
@@ -77,12 +75,15 @@ class WeatherViewController: UIViewController {
         weatherView.generalText = weatherData?.general
         weatherView.detailText = weatherData?.detail
         if let icon = weatherData?.icon {
+//DispatchQueue.global().async { [weak self] in     if let data = try? Data(contentsOf: pictureUrl) {         if let image = UIImage(data: data) {             DispatchQueue.main.async {                 self?.myImage = image             }         }     } }
+
             weatherView.weatherImage.downloaded(from: "https://openweathermap.org/img/wn/\(icon)@2x.png")
         }
+
+
     }
 
     private func showHour() {
-
         let dateFormatter = DateFormatter()
         dateFormatter.timeStyle = .short
         dateFormatter.dateStyle = .none

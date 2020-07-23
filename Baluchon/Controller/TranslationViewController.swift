@@ -89,11 +89,6 @@ extension TranslationViewController: UITextViewDelegate {
         }
     }
 
-//    func textViewShouldEndEditing(_ textView: UITextView) -> Bool {
-//        translationView1.input?.resignFirstResponder()
-//        return true
-//    }
-
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         if translationView1.input!.isFirstResponder && text == "\n" {
             translationView1.input?.resignFirstResponder()

@@ -20,7 +20,10 @@ class ExchangeService {
     }
 
     func getExchange(completed: @escaping (Result<Exchange, NetworkError>) -> Void) {
-        guard let url = URL(string: Network.Exchange.baseUrl + Network.Exchange.parameters) else { return }
+        guard let apiKey = Network.Exchange.apiKey, let url = URL(string: Network.Exchange.baseUrl + Network.Exchange.parameters + apiKey) else {
+            completed(.failure(.invalidRequest))
+            return
+        }
 
         task?.cancel()
         

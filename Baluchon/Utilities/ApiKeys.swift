@@ -8,10 +8,8 @@
 
 import Foundation
 
-func valueForAPIKey(named keyname: String) -> String {
-    let filePath = Bundle.main.path(forResource: "ASApiKeys", ofType: "plist")
-    let plist = NSDictionary(contentsOfFile: filePath!)
-    let value = plist?.object(forKey: keyname) as! String
+func valueForAPIKey(named keyname: String) -> String? {
+    guard let filePath = Bundle.main.path(forResource: "ASApiKeys", ofType: "plist"), let plist = NSDictionary(contentsOfFile: filePath), let value = plist.object(forKey: keyname) as? String else { return nil }
     return value
 }
 

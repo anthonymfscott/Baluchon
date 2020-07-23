@@ -20,8 +20,10 @@ class WeatherService {
     }
 
     func getWeather(completed: @escaping (Result<WeatherResponse, NetworkError>) -> Void) {
-        // guard let apiKey, url
-        guard let url = URL(string: Network.Weather.baseUrl + Network.Weather.parameters) else { return }
+        guard let apiKey = Network.Weather.apiKey, let url = URL(string: Network.Weather.baseUrl + Network.Weather.parameters + apiKey) else {
+            completed(.failure(.invalidRequest))
+            return
+        }
 
         task?.cancel()
 
