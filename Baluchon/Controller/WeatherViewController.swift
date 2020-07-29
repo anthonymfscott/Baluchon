@@ -75,8 +75,6 @@ class WeatherViewController: UIViewController {
         weatherView.generalText = weatherData?.general
         weatherView.detailText = weatherData?.detail
         if let icon = weatherData?.icon {
-//DispatchQueue.global().async { [weak self] in     if let data = try? Data(contentsOf: pictureUrl) {         if let image = UIImage(data: data) {             DispatchQueue.main.async {                 self?.myImage = image             }         }     } }
-
             weatherView.weatherImage.downloaded(from: "https://openweathermap.org/img/wn/\(icon)@2x.png")
         }
 

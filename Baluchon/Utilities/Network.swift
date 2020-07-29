@@ -17,8 +17,6 @@ enum Network {
     enum Translation {
         static let baseUrl = "https://translation.googleapis.com/language/translate/v2"
         static let apiKey = valueForAPIKey(named: "API_GoogleTranslation")
-//        
-//        static let parameters = "q=\(inputText)&target=\(targetLanguage)&format=text&key=\(apiKey)"
     }
     enum Exchange {
         static let baseUrl = "http://data.fixer.io/api/"
