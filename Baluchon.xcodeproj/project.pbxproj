@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		AD09C284248EA95800CF3B07 /* ExchangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD09C283248EA95800CF3B07 /* ExchangeViewController.swift */; };
-		AD0EBAB624CEF49A002AB65C /* ApiKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = AD0EBAB524CEF49A002AB65C /* ApiKeys.plist */; };
 		AD24DAF4249BFB130060FB99 /* BaluchonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD24DAF3249BFB130060FB99 /* BaluchonView.swift */; };
 		AD3A22F5249381D100032006 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3A22F4249381D100032006 /* NetworkError.swift */; };
 		AD3CE748248D9D7C00063181 /* TranslationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3CE747248D9D7C00063181 /* TranslationViewController.swift */; };
@@ -38,6 +37,7 @@
 		ADAF7032248A9EF80058F1A7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADAF7030248A9EF80058F1A7 /* Main.storyboard */; };
 		ADAF7034248A9EFA0058F1A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADAF7033248A9EFA0058F1A7 /* Assets.xcassets */; };
 		ADAF7037248A9EFA0058F1A7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADAF7035248A9EFA0058F1A7 /* LaunchScreen.storyboard */; };
+		ADC256EA24D15EFF0032D174 /* ApiKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = ADC256E924D15EFF0032D174 /* ApiKeys.plist */; };
 		ADCFFD6C24B7259900E0FBC4 /* ApiKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCFFD6B24B7259900E0FBC4 /* ApiKeys.swift */; };
 		ADCFFD6E24B725BA00E0FBC4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCFFD6D24B725BA00E0FBC4 /* Constants.swift */; };
 		ADFF2511249E49E500A9CC33 /* WeatherServiceTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFF2510249E49E500A9CC33 /* WeatherServiceTestCase.swift */; };
@@ -57,7 +57,6 @@
 
 /* Begin PBXFileReference section */
 		AD09C283248EA95800CF3B07 /* ExchangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeViewController.swift; sourceTree = "<group>"; };
-		AD0EBAB524CEF49A002AB65C /* ApiKeys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = ApiKeys.plist; path = ../../../ApiKeys.plist; sourceTree = "<group>"; };
 		AD24DAF3249BFB130060FB99 /* BaluchonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaluchonView.swift; sourceTree = "<group>"; };
 		AD3A22F4249381D100032006 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		AD3CE747248D9D7C00063181 /* TranslationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationViewController.swift; sourceTree = "<group>"; };
@@ -89,6 +88,7 @@
 		ADAF7033248A9EFA0058F1A7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ADAF7036248A9EFA0058F1A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ADAF7038248A9EFA0058F1A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ADC256E924D15EFF0032D174 /* ApiKeys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = ApiKeys.plist; path = "../../../../P9_scott_anthony 2/P9_01_Xcode/Baluchon/Utilities/ApiKeys.plist"; sourceTree = "<group>"; };
 		ADCFFD6B24B7259900E0FBC4 /* ApiKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiKeys.swift; sourceTree = "<group>"; };
 		ADCFFD6D24B725BA00E0FBC4 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		ADFF2506249E492A00A9CC33 /* BaluchonTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BaluchonTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -210,7 +210,7 @@
 				AD5810B224BDBA98000EC6D6 /* Network.swift */,
 				AD5810B624BDBAC8000EC6D6 /* Strings.swift */,
 				AD5810B424BDBAB6000EC6D6 /* Images.swift */,
-				AD0EBAB524CEF49A002AB65C /* ApiKeys.plist */,
+				ADC256E924D15EFF0032D174 /* ApiKeys.plist */,
 				ADCFFD6B24B7259900E0FBC4 /* ApiKeys.swift */,
 			);
 			path = Utilities;
@@ -325,9 +325,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				ADAF7037248A9EFA0058F1A7 /* LaunchScreen.storyboard in Resources */,
+				ADC256EA24D15EFF0032D174 /* ApiKeys.plist in Resources */,
 				ADAF7034248A9EFA0058F1A7 /* Assets.xcassets in Resources */,
 				ADAF7032248A9EF80058F1A7 /* Main.storyboard in Resources */,
-				AD0EBAB624CEF49A002AB65C /* ApiKeys.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
