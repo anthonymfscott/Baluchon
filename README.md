@@ -2,12 +2,7 @@
 
 ## Documentation
 
-### Architecture
-
 https://github.com/anthonymfscott/Baluchon/blob/master/Document%20d'architecture.pdf
-
-### Bonus
-
 https://github.com/anthonymfscott/Baluchon/blob/master/Document%20de%20bonus.pdf
 
 ## API Keys
